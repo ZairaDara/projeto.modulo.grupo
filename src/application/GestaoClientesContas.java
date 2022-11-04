@@ -132,4 +132,14 @@ public class GestaoClientesContas {
             }
         }
     }
+    public Integer getIdContaCorrenteMax() {
+        return this.idContaCorrenteMax;
+    }
+    public Integer getIdContaInvestimentoMax(){
+        return this.idContaInvestimentoMax;
+    }
+    public Integer getIdContaPoupancaMax(){
+        return this.idContaPoupancaMax;
+    }
+
 }

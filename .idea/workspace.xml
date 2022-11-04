@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d3c0cf20-1e2e-4257-8fa3-c43af429af70" name="Changes" comment="Atualizando métodos GestaoClientesContas!">
-      <change afterPath="$PROJECT_DIR$/src/entities/ClientePF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/ClientePJ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="d3c0cf20-1e2e-4257-8fa3-c43af429af70" name="Changes" comment="CLasse GestaoClientesCOntas contendo BaseCliente BaseConta e métodos criar cliente e criar conta.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/CriadorConta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/CriadorConta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/GestaoClientesContas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/GestaoClientesContas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/enums/TipoPessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/enums/TipoPessoa.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +46,26 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="application" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="application.Program" />
+      <module name="projeto.modulo.grupo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Program" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -146,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667524282738</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="CLasse GestaoClientesCOntas contendo BaseCliente BaseConta e métodos criar cliente e criar conta.">
+      <created>1667604031338</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1667604031338</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,9 +188,9 @@
     <MESSAGE value="Commit Parametros" />
     <MESSAGE value="CLasse Objeto Cliente" />
     <MESSAGE value="CLasse Objeto ContasCliente" />
-    <MESSAGE value="CLasse GestaoClientesCOntas contendo BaseCliente BaseConta e métodos criar cliente e criar conta." />
     <MESSAGE value="Atualizando métodos GestaoClientesContas!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Atualizando métodos GestaoClientesContas!" />
+    <MESSAGE value="CLasse GestaoClientesCOntas contendo BaseCliente BaseConta e métodos criar cliente e criar conta." />
+    <option name="LAST_COMMIT_MESSAGE" value="CLasse GestaoClientesCOntas contendo BaseCliente BaseConta e métodos criar cliente e criar conta." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
