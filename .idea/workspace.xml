@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d3c0cf20-1e2e-4257-8fa3-c43af429af70" name="Changes" comment="CLasse GestaoClientesCOntas contendo BaseCliente BaseConta e métodos criar cliente e criar conta.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/GestaoClientesContas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/GestaoClientesContas.java" afterDir="false" />
-    </list>
+    <list default="true" id="d3c0cf20-1e2e-4257-8fa3-c43af429af70" name="Changes" comment="criado getIdContas Max" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -167,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667604031338</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="criado getIdContas Max">
+      <created>1667605105520</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1667605105520</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -190,7 +194,8 @@
     <MESSAGE value="CLasse Objeto ContasCliente" />
     <MESSAGE value="Atualizando métodos GestaoClientesContas!" />
     <MESSAGE value="CLasse GestaoClientesCOntas contendo BaseCliente BaseConta e métodos criar cliente e criar conta." />
-    <option name="LAST_COMMIT_MESSAGE" value="CLasse GestaoClientesCOntas contendo BaseCliente BaseConta e métodos criar cliente e criar conta." />
+    <MESSAGE value="criado getIdContas Max" />
+    <option name="LAST_COMMIT_MESSAGE" value="criado getIdContas Max" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
