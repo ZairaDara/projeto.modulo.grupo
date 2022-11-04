@@ -52,7 +52,7 @@ public class CriadorConta {
                 tipoPessoaIn1 = String.valueOf(TipoPessoa.PESSOA_FISICA);
                 break;
             case 14:
-                tipoPessoaIn1 = String.valueOf(TipoPessoa.PESSOA_JURICA);
+                tipoPessoaIn1 = String.valueOf(TipoPessoa.PESSOA_JURIDICA);
                 break;
             default:
                 System.out.println("Valor de documento Inválido");

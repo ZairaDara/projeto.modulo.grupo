@@ -1,8 +1,7 @@
 package application;
 
-import entities.Cliente;
-import entities.ContaNova;
-import entities.ContasCliente;
+import entities.*;
+import entities.enums.TipoPessoa;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,18 +36,38 @@ public class GestaoClientesContas {
     }
 
     public boolean criarCliente(String idCliente, String nomeCliente, String tipoPessoa) {
-        Cliente novoCliente = new Cliente(idCliente, nomeCliente, tipoPessoa);
-        baseClientes.add(novoCliente);
-        return true;
+        if (tipoPessoa.equals(TipoPessoa.PESSOA_FISICA.toString())){
+            Cliente novoCliente = new ClientePF(idCliente, nomeCliente);
+            baseClientes.add(novoCliente);
+            return true;
+        } else if (tipoPessoa.equals(TipoPessoa.PESSOA_JURIDICA.toString())){
+            Cliente novoCliente = new ClientePJ(idCliente, nomeCliente);
+            baseClientes.add(novoCliente);
+            return true;
+        } else {
+            System.out.println("Tipo de pessoa inválido!");
+            return false;
+        }
     }
 
     public boolean validaIdCliente(String idCliente, String nomeCliente, String tipoPessoa) {
         boolean valida = false;
-        Cliente cliente = new Cliente(idCliente, nomeCliente, tipoPessoa);
-        for (Cliente c : baseClientes) {
-            if (idCliente.equals(c.getIdCliente().toString())) {
-                valida = true;
+        if (tipoPessoa.equals("PESSOA_FISICA")) {
+            Cliente cliente = new ClientePF(idCliente, nomeCliente);
+            for (Cliente c : baseClientes) {
+                if (idCliente.equals(c.getIdCliente().toString())) {
+                    valida = true;
+                }
             }
+        } else if (tipoPessoa.equals("PESSOA_JURIDICA")) {
+            Cliente cliente = new ClientePJ(idCliente, nomeCliente);
+            for (Cliente c : baseClientes) {
+                if (idCliente.equals(c.getIdCliente().toString())) {
+                    valida = true;
+                }
+            }
+        } else {
+            valida = false;
         }
         return valida;
     }

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d3c0cf20-1e2e-4257-8fa3-c43af429af70" name="Changes" comment="Alterado o CriadorConta e o GestaoClientesContas">
+    <list default="true" id="d3c0cf20-1e2e-4257-8fa3-c43af429af70" name="Changes" comment="Atualizando métodos GestaoClientesContas!">
+      <change afterPath="$PROJECT_DIR$/src/entities/ClientePF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/ClientePJ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/CriadorConta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/CriadorConta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Conta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/SaldoConta.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/GestaoClientesContas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/GestaoClientesContas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/enums/TipoPessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/enums/TipoPessoa.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -40,7 +43,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;ignore.preview.features.used&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Projetos/projeto.modulo.grupo&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Public/Documents/Secao4&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
@@ -143,14 +146,7 @@
       <option name="project" value="LOCAL" />
       <updated>1667524282738</updated>
     </task>
-    <task id="LOCAL-00013" summary="Alterado o CriadorConta e o GestaoClientesContas">
-      <created>1667559725827</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1667559725827</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -173,8 +169,7 @@
     <MESSAGE value="CLasse Objeto ContasCliente" />
     <MESSAGE value="CLasse GestaoClientesCOntas contendo BaseCliente BaseConta e métodos criar cliente e criar conta." />
     <MESSAGE value="Atualizando métodos GestaoClientesContas!" />
-    <MESSAGE value="Alterado o CriadorConta e o GestaoClientesContas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alterado o CriadorConta e o GestaoClientesContas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atualizando métodos GestaoClientesContas!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
