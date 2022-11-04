@@ -1,9 +1,5 @@
 package application;
 
-import entities.Conta;
-import entities.enums.TipoConta;
-import entities.enums.TipoPessoa;
-
 import java.util.Locale;
 import java.util.Scanner;
 
