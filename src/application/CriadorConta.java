@@ -57,7 +57,7 @@ public class CriadorConta {
             case 14:
                 tipoPessoaIn1 = String.valueOf(TipoPessoa.PESSOA_JURICA);
                 break;
-            case default:
+            default:
                 System.out.println("Valor de documento Inválido");
         }
         return tipoPessoaIn1;

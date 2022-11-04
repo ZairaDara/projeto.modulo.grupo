@@ -31,6 +31,7 @@ public class Program {
     public static void Roteador(int opcao) {
 
         CriadorConta criadorConta = new CriadorConta();
+
         switch (opcao) {
             case 1:
                 System.out.println("Criacao de contas iniciado");
@@ -38,11 +39,12 @@ public class Program {
                 break;
             case 2:
                 System.out.println("Opcao de realizar operacoes");
-                break;
+                MenuOperacoes menuOperacoes = new MenuOperacoes();
+                menuOperacoes.SelecionaOpcao();
             case 3:
                 System.out.println("Opcao para imprimir todas as informacoes de todas as contas");
                 break;
-            case default:
+            default:
                 System.out.println("Programa encerrado!");
                 break;
         }
