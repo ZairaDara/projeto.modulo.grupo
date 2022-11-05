@@ -4,6 +4,7 @@ import entities.*;
 import entities.enums.TipoConta;
 import entities.enums.TipoPessoa;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -154,6 +155,36 @@ public class GestaoClientesContas {
     }
     public Integer getIdContaPoupancaMax(){
         return this.idContaPoupancaMax;
+    }
+
+    public int getIdContaCorrente() {
+        return 0;
+    }
+
+    public int getIdContaInvestimento() {
+        return 0;
+    }
+
+    public int getIdContaPoupanca() {
+        return 0;
+    }
+
+    public void listaTodasAsContas() {
+
+        for (int i = 0; i < this.baseClientes.size(); i++) {
+            Cliente cliente = this.baseClientes.get(i);
+            System.out.println(cliente);
+
+            for (int j = 0; j < this.baseContasCliente.size(); j++) {
+                ContasCliente contasCliente = this.baseContasCliente.get(j);
+                if (cliente.getIdCliente().equals(contasCliente.getIDCliente())) {
+                    System.out.println(contasCliente);
+                    break;
+                }
+            }
+
+        }
+
     }
 
 }
