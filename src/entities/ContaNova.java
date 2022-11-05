@@ -4,47 +4,31 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class ContaNova {
-    private Integer IDConta = 0;
-    private String IDCliente = "00000000000000";
-    private String TipoConta = "CONTA_CORRENTE";
-    private BigDecimal Saldo = BigDecimal.valueOf(0).setScale(4, RoundingMode.HALF_EVEN);
-
+    protected Integer idConta = 0;
+    protected String idCliente = "00000000000000";
+    private BigDecimal saldo = BigDecimal.valueOf(0).setScale(4, RoundingMode.HALF_EVEN);
 
     public Integer getIDConta() {
-        return IDConta;
+        return idConta;
     }
-
-    public void setIDConta(Integer IDConta) {
-        this.IDConta = IDConta;
+    public void setIDConta(Integer idConta) {
+        this.idConta = idConta;
     }
-
     public String getIDCliente() {
-        return IDCliente;
+        return idCliente;
     }
-
-    public void setIDCliente(String IDCliente) {
-        this.IDCliente = IDCliente;
+    public void setIDCliente(String idCliente) {
+        this.idCliente = idCliente;
     }
-
-    public String getTipoConta() {
-        return TipoConta;
-    }
-
-    public void setTipoConta(String tipoConta) {
-        TipoConta = tipoConta;
-    }
-
     public BigDecimal getSaldo() {
-        return Saldo;
+        return saldo;
     }
-
     public void setSaldo(BigDecimal saldo) {
-        Saldo = saldo;
+        this.saldo = saldo.setScale(4,RoundingMode.HALF_EVEN);
     }
 
-    public ContaNova(Integer IDConta, String IDCliente, String tipoConta) {
-        this.IDConta = IDConta;
-        this.IDCliente = IDCliente;
-        this.TipoConta = tipoConta;
+    public ContaNova(Integer idConta, String idCliente){
+        this.idConta = idConta;
+        this.idCliente = idCliente;
     }
 }

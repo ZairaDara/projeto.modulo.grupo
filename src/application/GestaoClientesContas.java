@@ -1,6 +1,7 @@
 package application;
 
 import entities.*;
+import entities.enums.TipoConta;
 import entities.enums.TipoPessoa;
 
 import java.util.ArrayList;
@@ -83,9 +84,22 @@ public class GestaoClientesContas {
         }
     }
     public boolean criarConta(Integer idConta, String idCliente, String tipoConta) {
-        ContaNova novaConta = new ContaNova(idConta, idCliente, tipoConta);
-        baseContas.add(novaConta);
-        return true;
+        if (tipoConta.equals(TipoConta.CONTA_CORRENTE.toString())) {
+            ContaNova novaConta = new ContaCorrente(idConta, idCliente);
+            baseContas.add(novaConta);
+            return true;
+        }else if(tipoConta.equals(TipoConta.CONTA_POUPANCA.toString())){
+            ContaNova novaConta = new ContaPoupanca(idConta, idCliente);
+            baseContas.add(novaConta);
+            return true;
+        } else if (tipoConta.equals(TipoConta.CONTA_INVESTIMENTO.toString())){
+            ContaNova novaConta = new ContaInvestimento(idConta, idCliente);
+            baseContas.add(novaConta);
+            return true;
+        } else {
+            System.out.println("Tipo de Conta Inválido!");
+            return false;
+        }
     }
 
     public boolean criarNovoCadastro(String idCliente, Integer idContaCorrente, Integer idContaPoupanca, Integer
