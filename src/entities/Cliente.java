@@ -12,4 +12,12 @@ public abstract class Cliente {
     }
 
     public abstract Object getIdCliente();
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "Identificador='" + this.getIdCliente() + '\'' +
+                "nomeCliente='" + nomeCliente + '\'' +
+                '}';
+    }
 }

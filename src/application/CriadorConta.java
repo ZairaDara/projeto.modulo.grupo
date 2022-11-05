@@ -1,5 +1,6 @@
 package application;
 
+import entities.ContaNova;
 import entities.enums.TipoConta;
 import entities.enums.TipoContaJuridica;
 import entities.enums.TipoPessoa;
@@ -9,7 +10,7 @@ import java.util.Scanner;
 public class CriadorConta {
 
     Scanner sc = new Scanner(System.in);
-
+    public static GestaoClientesContas gestaoClientesContas = new GestaoClientesContas();
     public void criadorConta() {
 
         int i = 0;
@@ -76,7 +77,7 @@ public class CriadorConta {
     }
 
     public static void InseriConta(String nome, String documento, String tipoPessoaIn2, String tipoContaIn2) {
-        GestaoClientesContas gestaoClientesContas = new GestaoClientesContas();
+
 
         Integer idContaCorrente = 0;
         Integer idContaPoupanca = 0;
@@ -99,8 +100,8 @@ public class CriadorConta {
             idConta = idContaPoupanca;
         }
 
-        if (!gestaoClientesContas.validaIdCliente(nome, documento, tipoPessoaIn2)) {
-            gestaoClientesContas.criarCliente(nome, documento, tipoPessoaIn2);
+        if (!gestaoClientesContas.validaIdCliente(documento, nome, tipoPessoaIn2)) {
+            gestaoClientesContas.criarCliente(documento, nome, tipoPessoaIn2);
             gestaoClientesContas.criarNovoCadastro(documento, idContaCorrente, idContaPoupanca, idContaInvestimento);
             gestaoClientesContas.criarConta(idConta, documento, tipoPessoaIn2);
             System.out.println("Cliente cadastrado com sucesso!");
