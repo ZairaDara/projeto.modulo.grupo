@@ -42,6 +42,7 @@ public class Program {
             case 2:
                 System.out.println("Opcao de realizar operacoes");
                 menuOperacoes.SelecionaOpcao();
+                break;
             case 3:
                 System.out.println("Opcao para imprimir todas as informacoes de todas as contas");
                 CriadorConta.gestaoClientesContas.listaTodasAsContas();

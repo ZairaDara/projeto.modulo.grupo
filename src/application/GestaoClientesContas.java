@@ -32,6 +32,7 @@ public class GestaoClientesContas {
     public void setIdContaCorrenteMax(Integer idContaCorrenteMax) {
         this.idContaCorrenteMax = idContaCorrenteMax;
     }
+
     public void setIdContaPoupancaMax(Integer idContaPoupancaMax) {
         this.idContaPoupancaMax = idContaPoupancaMax;
     }
@@ -76,18 +77,18 @@ public class GestaoClientesContas {
         GestaoClientesContas.idContaCorrente = idContaCorrente;
     }
 
-    public boolean criarCliente(String idCliente, String nomeCliente, String tipoPessoa) {
+    public Cliente criarCliente(String idCliente, String nomeCliente, String tipoPessoa) {
         if (tipoPessoa.equals(TipoPessoa.PESSOA_FISICA.toString())) {
             Cliente novoCliente = new ClientePF(idCliente, nomeCliente);
             baseClientes.add(novoCliente);
-            return true;
+            return novoCliente;
         } else if (tipoPessoa.equals(TipoPessoa.PESSOA_JURIDICA.toString())) {
             Cliente novoCliente = new ClientePJ(idCliente, nomeCliente);
             baseClientes.add(novoCliente);
-            return true;
+            return novoCliente;
         } else {
             System.out.println("Tipo de pessoa inválido!");
-            return false;
+            return null;
         }
     }
 
@@ -113,11 +114,11 @@ public class GestaoClientesContas {
         return valida;
     }
 
-    public boolean validaContasCliente(String IDCliente, Integer IDContaCorrente, Integer IDContaPoupanca, Integer IDContaInvestimento) {
-        ContasCliente contasCliente = new ContasCliente(IDCliente, IDContaCorrente, IDContaPoupanca, IDContaInvestimento);
+    public boolean validaContasCliente(Cliente cliente, Integer IDContaCorrente, Integer IDContaPoupanca, Integer IDContaInvestimento) {
+        ContasCliente contasCliente = new ContasCliente(cliente, IDContaCorrente, IDContaPoupanca, IDContaInvestimento);
         boolean valida = false;
         for (ContasCliente c : baseContasCliente) {
-            if (IDCliente.equals(c.getIDCliente().toString())) {
+            if (cliente.getIdCliente().equals(c.getIDCliente().toString())) {
                 idContaInvestimento = c.getIDContaInvestimento();
                 idContaPoupanca = c.getIDContaPoupanca();
                 idContaCorrente = c.getIDContaCorrente();
@@ -127,17 +128,17 @@ public class GestaoClientesContas {
         return valida;
     }
 
-    public boolean criarConta(Integer idContaCorrente, Integer idContaPoupanca,Integer idContaInvestimento, String idCliente, String tipoConta) {
+    public boolean criarConta(Integer idContaCorrente, Integer idContaPoupanca, Integer idContaInvestimento, Cliente cliente, String tipoConta) {
         if (tipoConta.equals(TipoConta.CONTA_CORRENTE.toString())) {
-            ContaNova novaConta = new ContaCorrente(idContaCorrente, idCliente);
+            ContaNova novaConta = new ContaCorrente(idContaCorrente, cliente);
             baseContas.add(novaConta);
             return true;
         } else if (tipoConta.equals(TipoConta.CONTA_POUPANCA.toString())) {
-            ContaNova novaConta = new ContaPoupanca(idContaPoupanca, idCliente);
+            ContaNova novaConta = new ContaPoupanca(idContaPoupanca, cliente);
             baseContas.add(novaConta);
             return true;
         } else if (tipoConta.equals(TipoConta.CONTA_INVESTIMENTO.toString())) {
-            ContaNova novaConta = new ContaInvestimento(idContaInvestimento, idCliente);
+            ContaNova novaConta = new ContaInvestimento(idContaInvestimento, cliente);
             baseContas.add(novaConta);
             return true;
         } else {
@@ -146,20 +147,20 @@ public class GestaoClientesContas {
         }
     }
 
-    public boolean criarNovoCadastro(String idCliente, Integer idContaCorrente, Integer idContaPoupanca, Integer
+    public boolean criarNovoCadastro(Cliente cliente, Integer idContaCorrente, Integer idContaPoupanca, Integer
             idContaInvestimento) {
-        ContasCliente novoCadastro = new ContasCliente(idCliente, idContaCorrente, idContaPoupanca, idContaInvestimento);
+        ContasCliente novoCadastro = new ContasCliente(cliente, idContaCorrente, idContaPoupanca, idContaInvestimento);
         baseContasCliente.add(novoCadastro);
         return true;
     }
 
-    public boolean atualizaNovoCadastro(String idCliente, Integer idContaCorrente, Integer idContaPoupanca, Integer
+    public boolean atualizaNovoCadastro(Cliente cliente, Integer idContaCorrente, Integer idContaPoupanca, Integer
             idContaInvestimento) {
-        ContasCliente atualizaCadastro = new ContasCliente(idCliente, idContaCorrente, idContaPoupanca, idContaInvestimento);
+        ContasCliente atualizaCadastro = new ContasCliente(cliente, idContaCorrente, idContaPoupanca, idContaInvestimento);
         boolean valida = false;
         for (ContasCliente c : baseContasCliente) {
-            if (idCliente.equals(c.getIDCliente().toString())) {
-                if (idCliente.equals(c.getIDCliente().toString())) {
+            if (cliente.getIdCliente().equals(c.getIDCliente().toString())) {
+                if (cliente.getIdCliente().equals(c.getIDCliente().toString())) {
                     c.setIDContaCorrente(idContaCorrente);
                     c.setIDContaInvestimento(idContaInvestimento);
                     c.setIDContaPoupanca(idContaPoupanca);
@@ -170,28 +171,28 @@ public class GestaoClientesContas {
         return valida;
     }
 
-    public boolean atualizaConta(Integer idContaCorrente, Integer idContaPoupanca,Integer idContaInvestimento, String idCliente, String tipoConta) {
+    public boolean atualizaConta(Integer idContaCorrente, Integer idContaPoupanca, Integer idContaInvestimento, Cliente cliente, String tipoConta) {
         boolean valida = false;
         if (tipoConta.equals(TipoConta.CONTA_CORRENTE.toString())) {
-            ContaNova novaConta = new ContaCorrente(idContaCorrente, idCliente);
-            for (ContaNova c: baseContas){
-                if (idCliente.equals(c.getIDCliente().toString())){
+            ContaNova novaConta = new ContaCorrente(idContaCorrente, cliente);
+            for (ContaNova c : baseContas) {
+                if (cliente.getIdCliente().equals(c.getIDCliente().toString())) {
                     novaConta.setIDConta(idContaCorrente);
                     valida = true;
                 }
             }
         } else if (tipoConta.equals(TipoConta.CONTA_POUPANCA.toString())) {
-            ContaNova novaConta = new ContaPoupanca(idContaPoupanca, idCliente);
-            for (ContaNova c: baseContas){
-                if (idCliente.equals(c.getIDCliente().toString())){
+            ContaNova novaConta = new ContaPoupanca(idContaPoupanca, cliente);
+            for (ContaNova c : baseContas) {
+                if (cliente.getIdCliente().equals(c.getIDCliente().toString())) {
                     novaConta.setIDConta(idContaPoupanca);
                     valida = true;
                 }
             }
         } else if (tipoConta.equals(TipoConta.CONTA_INVESTIMENTO.toString())) {
-            ContaNova novaConta = new ContaInvestimento(idContaInvestimento, idCliente);
-            for (ContaNova c: baseContas){
-                if (idCliente.equals(c.getIDCliente().toString())){
+            ContaNova novaConta = new ContaInvestimento(idContaInvestimento, cliente);
+            for (ContaNova c : baseContas) {
+                if (cliente.getIdCliente().equals(c.getIDCliente().toString())) {
                     novaConta.setIDConta(idContaInvestimento);
                     valida = true;
                 }
@@ -209,10 +210,10 @@ public class GestaoClientesContas {
             Cliente cliente = this.baseClientes.get(i);
             System.out.println(cliente);
 
-            for (int j = 0; j < this.baseContasCliente.size(); j++) {
-                ContasCliente contasCliente = this.baseContasCliente.get(j);
-                if (cliente.getIdCliente().equals(contasCliente.getIDCliente())) {
-                    System.out.println(contasCliente);
+            for (int j = 0; j < this.baseContas.size(); j++) {
+                ContaNova contaNova = this.baseContas.get(j);
+                if (cliente.getIdCliente().equals(contaNova.getIDCliente())) {
+                    System.out.println(contaNova);
                     break;
                 }
             }
@@ -221,28 +222,21 @@ public class GestaoClientesContas {
 
     }
 
-    public Integer buscaContaCliente(String documento){
-        if (this.baseClientes.size()==0) {
+    public ContaNova buscaContaCliente(String documento, TipoConta tipoConta) {
+
+        ContaNova contaNova = null;
+
+        if (this.baseClientes.size() == 0) {
             System.out.println(" xxxxxx Cliente não possui conta. Crie uma conta para realizar a operação xxxxxx");
-        }else {
-             System.out.printf("busca a conta");
-            for (int i = 0; i < this.baseContasCliente.size() ; i++) {
-                ContasCliente contasCliente = this.baseContasCliente.get(i);
-                Integer conta = contasCliente.getIDContaCorrente();
+        } else {
+            for (int i = 0; i < this.baseContas.size(); i++) {
+                contaNova = this.baseContas.get(i);
+                if (contaNova.getTipoConta() == tipoConta &&
+                        contaNova.getIDCliente().equals(documento)) {
+                    break;
+                }
             }
-
         }
-        return 0;
+        return contaNova;
     }
-//
-//            for (int i = 0; i < this.baseContasCliente.size(); i++) {
-//        ContasCliente contasCliente = this.baseContasCliente.get(i);
-//        if (baseContasCliente..getIdCliente().equals(contasCliente.getIDCliente())) {
-//            System.out.println(contasCliente);
-//            break;
-//        }
-//    }
-
-
-
 }

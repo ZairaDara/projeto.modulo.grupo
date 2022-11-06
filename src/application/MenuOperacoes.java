@@ -24,16 +24,24 @@ public class MenuOperacoes {
         switch (opcao){
             case 1:
                 System.out.println("1- Sacar");
+                OpcaoSacar opcaoSacar = new OpcaoSacar();
+                opcaoSacar.sacar();
+                break;
             case 2:
                 System.out.println("2- Depositar");
                 OpcaoDepositar opcaoDepositar = new OpcaoDepositar();
                 opcaoDepositar.depositar();
+                break;
             case 3:
                 System.out.println("3- Transferir");
+                break;
             case 4:
                 System.out.println("4- Investir");
+                break;
             default:
                 System.out.println("Retornando ao menu inicial");
+                break;
+
         }
     }
 

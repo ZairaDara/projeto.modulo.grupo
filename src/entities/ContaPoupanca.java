@@ -1,12 +1,26 @@
 package entities;
 
-public class ContaPoupanca extends ContaNova{
-    private String TipoConta = entities.enums.TipoConta.CONTA_POUPANCA.toString();
+import entities.enums.TipoConta;
+import entities.enums.TipoPessoa;
 
-    public String getTipoConta() {
-        return TipoConta;
+import java.math.BigDecimal;
+
+public class ContaPoupanca extends ContaNova{
+    private TipoConta tipoConta = entities.enums.TipoConta.CONTA_POUPANCA;
+
+    public TipoConta getTipoConta() {
+        return tipoConta;
     }
-    public ContaPoupanca(Integer idConta, String idCliente) {
-        super(idConta, idCliente);
+    public ContaPoupanca(Integer idConta, Cliente cliente) {
+        super(idConta, cliente);
+    }
+
+    @Override
+    public void depositar(BigDecimal valorDeposito) {
+        if (cliente.getTipoPessoa() == TipoPessoa.PESSOA_FISICA) {
+            valorDeposito = valorDeposito.add(Parametros.TX_RENDIMENTO_CP_PF.multiply(valorDeposito).divide(new BigDecimal(100)));
+        }
+
+        super.depositar(valorDeposito);
     }
 }

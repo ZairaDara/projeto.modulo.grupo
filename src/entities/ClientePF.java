@@ -4,15 +4,11 @@ import entities.enums.TipoPessoa;
 
 public class ClientePF extends Cliente {
     private String cpfCliente = "00000000000";
-    private final String tipoPessoaCliente = TipoPessoa.PESSOA_FISICA.toString();
+    private final TipoPessoa tipoPessoaCliente = TipoPessoa.PESSOA_FISICA;
 
     public ClientePF(String idCliente, String nomeCliente) {
         this.cpfCliente = idCliente;
         super.setNomeCliente(nomeCliente);
-    }
-
-    public String getTipoPessoaCliente() {
-        return tipoPessoaCliente;
     }
 
     public void setIdCliente(String idCliente) {
@@ -27,6 +23,11 @@ public class ClientePF extends Cliente {
     @Override
     public String getIdCliente() {
         return cpfCliente;
+    }
+
+    @Override
+    public TipoPessoa getTipoPessoa() {
+        return this.tipoPessoaCliente;
     }
 
 
