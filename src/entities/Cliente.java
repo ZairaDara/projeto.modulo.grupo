@@ -17,7 +17,7 @@ public abstract class Cliente {
     public String toString() {
         return "Cliente{" +
                 "Identificador='" + this.getIdCliente() + '\'' +
-                "nomeCliente='" + nomeCliente + '\'' +
+                "Cliente='" + nomeCliente + '\'' +
                 '}';
     }
 }
