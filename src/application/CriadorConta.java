@@ -101,45 +101,57 @@ public class CriadorConta {
 
         if (!gestaoClientesContas.validaIdCliente(documento, nome, tipoPessoaIn2)) {
             gestaoClientesContas.criarCliente(documento, nome, tipoPessoaIn2);
-            gestaoClientesContas.criarNovoCadastro(documento, idContaCorrente, idContaPoupanca, idContaInvestimento);
-            gestaoClientesContas.criarConta(idContaCorrente, idContaPoupanca, idContaInvestimento, documento, tipoContaIn2);
-            System.out.println("Cliente cadastrado e conta criada com sucesso!");
+            if(tipoContaIn2.equals(TipoConta.CONTA_CORRENTE.toString())){
+                gestaoClientesContas.criarNovoCadastro(documento, idContaCorrente, 0, 0);
+                gestaoClientesContas.criarConta(idContaCorrente, 0,0, documento, tipoContaIn2);
+                System.out.println("Cliente cadastrado e conta corrente criada com sucesso!");
+            } else if (tipoContaIn2.equals(TipoConta.CONTA_POUPANCA.toString())) {
+                gestaoClientesContas.criarNovoCadastro(documento, 0, idContaPoupanca, 0);
+                gestaoClientesContas.criarConta(0, idContaPoupanca,0, documento, tipoContaIn2);
+                System.out.println("Cliente cadastrado e conta poupança criada com sucesso!");
+            } else if (tipoContaIn2.equals(TipoConta.CONTA_INVESTIMENTO.toString())) {
+                gestaoClientesContas.criarNovoCadastro(documento, 0, 0, idContaInvestimento);
+                gestaoClientesContas.criarConta(0, 0,idContaInvestimento, documento, tipoContaIn2);
+                System.out.println("Cliente cadastrado e conta investimento criada com sucesso!");
+            }else{
+                System.out.println("Informacoes de tipo de conta invalida");
+            }
         } else {
             boolean ctrlCadastro = false;
-            gestaoClientesContas.validaContasCliente(documento,idContaCorrente,idContaPoupanca,idContaInvestimento);
-            if (gestaoClientesContas.getIdContaCorrente()!=0 && tipoContaIn2.equals(TipoConta.CONTA_CORRENTE.toString())){
+            gestaoClientesContas.validaContasCliente(documento, idContaCorrente, idContaPoupanca, idContaInvestimento);
+            if (gestaoClientesContas.getIdContaCorrente() != 0 && tipoContaIn2.equals(TipoConta.CONTA_CORRENTE.toString())) {
                 System.out.println("Cliente já possui conta corrente");
                 ctrlCadastro = true;
             }
-            if (gestaoClientesContas.getIdContaInvestimento()!=0 && tipoContaIn2.equals(TipoConta.CONTA_INVESTIMENTO.toString())) {
+            if (gestaoClientesContas.getIdContaInvestimento() != 0 && tipoContaIn2.equals(TipoConta.CONTA_INVESTIMENTO.toString())) {
                 System.out.println("Cliente ja possui conta investimento");
                 ctrlCadastro = true;
             }
-            if (gestaoClientesContas.getIdContaPoupanca()!=0 && tipoContaIn2.equals(TipoConta.CONTA_POUPANCA.toString())){
+            if (gestaoClientesContas.getIdContaPoupanca() != 0 && tipoContaIn2.equals(TipoConta.CONTA_POUPANCA.toString())) {
                 System.out.println("Cliente ja possui conta conta poupança");
                 ctrlCadastro = true;
             }
-            if(!ctrlCadastro){
-                if(tipoContaIn2.equals(TipoConta.CONTA_CORRENTE.toString())){
+            if (!ctrlCadastro) {
+                if (tipoContaIn2.equals(TipoConta.CONTA_CORRENTE.toString())) {
                     gestaoClientesContas.atualizaNovoCadastro(documento, idContaCorrente, GestaoClientesContas.getIdContaPoupanca(), GestaoClientesContas.getIdContaInvestimento());
-                    gestaoClientesContas.atualizaConta(idContaCorrente, GestaoClientesContas.getIdContaPoupanca(), GestaoClientesContas.getIdContaInvestimento(), documento, tipoContaIn2);
+                    gestaoClientesContas.criarConta(idContaCorrente, GestaoClientesContas.getIdContaPoupanca(), GestaoClientesContas.getIdContaInvestimento(), documento, tipoContaIn2);
                     System.out.println("Conta corrente criada para o cliente!");
                 } else if (tipoContaIn2.equals(TipoConta.CONTA_POUPANCA.toString())) {
                     gestaoClientesContas.atualizaNovoCadastro(documento, GestaoClientesContas.getIdContaCorrente(), idContaPoupanca, GestaoClientesContas.getIdContaInvestimento());
-                    gestaoClientesContas.atualizaConta(GestaoClientesContas.getIdContaCorrente(), idContaPoupanca, GestaoClientesContas.getIdContaInvestimento(), documento, tipoContaIn2);
+                    gestaoClientesContas.criarConta(GestaoClientesContas.getIdContaCorrente(), idContaPoupanca, GestaoClientesContas.getIdContaInvestimento(), documento, tipoContaIn2);
                     System.out.println("Conta poupança criada para o cliente!");
                 } else if (tipoContaIn2.equals(TipoConta.CONTA_INVESTIMENTO.toString())) {
                     gestaoClientesContas.atualizaNovoCadastro(documento, GestaoClientesContas.getIdContaCorrente(), GestaoClientesContas.getIdContaPoupanca(), idContaInvestimento);
-                    gestaoClientesContas.atualizaConta(GestaoClientesContas.getIdContaCorrente(), GestaoClientesContas.getIdContaPoupanca(), idContaInvestimento, documento, tipoContaIn2);
+                    gestaoClientesContas.criarConta(GestaoClientesContas.getIdContaCorrente(), GestaoClientesContas.getIdContaPoupanca(), idContaInvestimento, documento, tipoContaIn2);
                     System.out.println("Conta investimento criada para o cliente!");
-                }else{
+                } else {
                     System.out.println("Conta nao identificada");
                 }
             }
         }
     }
 
-    public static void IniciaIdsMax(){
+    public static void IniciaIdsMax() {
         GestaoClientesContas gestaoClientesContas = new GestaoClientesContas();
 
         Optional<Integer> gestaoClientesContas1 = Optional.ofNullable(gestaoClientesContas.getIdContaCorrenteMax());
