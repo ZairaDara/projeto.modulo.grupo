@@ -44,4 +44,14 @@ public class ContasCliente {
         this.IDContaPoupanca = IDContaPoupanca;
         this.IDContaInvestimento = IDContaInvestimento;
     }
+
+    @Override
+    public String toString() {
+        return "ContasCliente{" +
+                "Identificador do Cliente='" + IDCliente + '\'' +
+                ", Conta Corrente=" + IDContaCorrente +
+                ", Conta Poupanca=" + IDContaPoupanca +
+                ", Conta Investimento=" + IDContaInvestimento +
+                '}';
+    }
 }

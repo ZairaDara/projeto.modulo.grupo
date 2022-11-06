@@ -4,9 +4,13 @@ import entities.*;
 import entities.enums.TipoConta;
 import entities.enums.TipoPessoa;
 
+import java.io.PrintStream;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class GestaoClientesContas {
     public static List<Cliente> baseClientes = new ArrayList<Cliente>();
@@ -198,4 +202,47 @@ public class GestaoClientesContas {
         }
         return valida;
     }
+
+    public void listaTodasAsContas() {
+
+        for (int i = 0; i < this.baseClientes.size(); i++) {
+            Cliente cliente = this.baseClientes.get(i);
+            System.out.println(cliente);
+
+            for (int j = 0; j < this.baseContasCliente.size(); j++) {
+                ContasCliente contasCliente = this.baseContasCliente.get(j);
+                if (cliente.getIdCliente().equals(contasCliente.getIDCliente())) {
+                    System.out.println(contasCliente);
+                    break;
+                }
+            }
+
+        }
+
+    }
+
+    public Integer buscaContaCliente(String documento){
+        if (this.baseClientes.size()==0) {
+            System.out.println(" xxxxxx Cliente não possui conta. Crie uma conta para realizar a operação xxxxxx");
+        }else {
+             System.out.printf("busca a conta");
+            for (int i = 0; i < this.baseContasCliente.size() ; i++) {
+                ContasCliente contasCliente = this.baseContasCliente.get(i);
+                Integer conta = contasCliente.getIDContaCorrente();
+            }
+
+        }
+        return 0;
+    }
+//
+//            for (int i = 0; i < this.baseContasCliente.size(); i++) {
+//        ContasCliente contasCliente = this.baseContasCliente.get(i);
+//        if (baseContasCliente..getIdCliente().equals(contasCliente.getIDCliente())) {
+//            System.out.println(contasCliente);
+//            break;
+//        }
+//    }
+
+
+
 }

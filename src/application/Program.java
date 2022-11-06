@@ -1,5 +1,7 @@
 package application;
 
+import entities.ContasCliente;
+
 import entities.enums.TipoConta;
 
 import java.util.Locale;
@@ -42,6 +44,7 @@ public class Program {
                 menuOperacoes.SelecionaOpcao();
             case 3:
                 System.out.println("Opcao para imprimir todas as informacoes de todas as contas");
+                CriadorConta.gestaoClientesContas.listaTodasAsContas();
                 break;
             default:
                 System.out.println("Programa encerrado!");

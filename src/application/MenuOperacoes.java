@@ -1,6 +1,9 @@
 package application;
 
+import entities.enums.TipoConta;
+import entities.enums.TipoContaJuridica;
 import entities.enums.TipoOperacao;
+import entities.enums.TipoPessoa;
 
 import java.util.Scanner;
 
@@ -23,6 +26,8 @@ public class MenuOperacoes {
                 System.out.println("1- Sacar");
             case 2:
                 System.out.println("2- Depositar");
+                OpcaoDepositar opcaoDepositar = new OpcaoDepositar();
+                opcaoDepositar.depositar();
             case 3:
                 System.out.println("3- Transferir");
             case 4:

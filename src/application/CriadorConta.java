@@ -1,5 +1,6 @@
 package application;
 
+import entities.ContaNova;
 import entities.enums.TipoConta;
 import entities.enums.TipoContaJuridica;
 import entities.enums.TipoPessoa;
@@ -10,7 +11,8 @@ import java.util.Scanner;
 public class CriadorConta {
 
     Scanner sc = new Scanner(System.in);
-    GestaoClientesContas gestaoClientesContas = new GestaoClientesContas();
+    public static GestaoClientesContas gestaoClientesContas = new GestaoClientesContas();
+    //GestaoClientesContas gestaoClientesContas = new GestaoClientesContas();
 
     public void criadorConta() {
 

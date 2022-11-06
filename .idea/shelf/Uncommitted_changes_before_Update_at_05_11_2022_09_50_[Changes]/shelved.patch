@@ -1,0 +1,208 @@
+Index: src/application/GestaoClientesContas.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package application;\r\n\r\nimport entities.Cliente;\r\nimport entities.ContaNova;\r\nimport entities.ContasCliente;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class GestaoClientesContas {\r\n    public static List<Cliente> baseClientes = new ArrayList<Cliente>();\r\n    public List<ContasCliente> baseContasCliente = new ArrayList<ContasCliente>();\r\n    public List<ContaNova> baseContas = new ArrayList<ContaNova>();\r\n\r\n    private Integer idContaCorrenteMax;\r\n\r\n    public Integer idContaCorrenteMax(){ return idContaCorrenteMax;}\r\n\r\n    private Integer idContaPoupancaMax;\r\n\r\n    public Integer idContaPoupancaMax(){ return idContaPoupancaMax;}\r\n\r\n    private Integer idContaInvestimentoMax;\r\n\r\n    public Integer idContaInvestimentoMax(){ return idContaInvestimentoMax;}\r\n\r\n    public void setIdContaCorrenteMax(Integer idContaCorrenteMax) {\r\n        this.idContaCorrenteMax = idContaCorrenteMax;\r\n    }\r\n\r\n    public void setIdContaPoupancaMax(Integer idContaPoupancaMax) {\r\n        this.idContaPoupancaMax = idContaPoupancaMax;\r\n    }\r\n\r\n    public void setIdContaInvestimentoMax(Integer idContaInvestimentoMax) {\r\n        this.idContaInvestimentoMax = idContaInvestimentoMax;\r\n    }\r\n\r\n    public boolean criarCliente(String idCliente, String nomeCliente, String tipoPessoa) {\r\n        Cliente novoCliente = new Cliente(idCliente, nomeCliente, tipoPessoa);\r\n        baseClientes.add(novoCliente);\r\n        return true;\r\n    }\r\n\r\n    public boolean validaIdCliente(String idCliente, String nomeCliente, String tipoPessoa) {\r\n        boolean valida = false;\r\n        Cliente cliente = new Cliente(idCliente, nomeCliente, tipoPessoa);\r\n        for (Cliente c : baseClientes) {\r\n            if (idCliente.equals(c.getIdCliente().toString())) {\r\n                valida = true;\r\n            }\r\n        }\r\n        return valida;\r\n    }\r\n\r\n    public void validaContasCliente(String IDCliente, Integer IDContaCorrente, Integer IDContaPoupanca, Integer IDContaInvestimento) {\r\n        ContasCliente contasCliente = new ContasCliente(IDCliente, IDContaCorrente, IDContaPoupanca, IDContaInvestimento);\r\n        for (ContasCliente c : baseContasCliente) {\r\n            if (IDCliente.equals(c.getIDCliente().toString())) {\r\n                Integer idContaCorrente = c.getIDContaCorrente();\r\n                Integer idContaPoupanca = c.getIDContaPoupanca();\r\n                Integer idContaInvestimento = c.getIDContaInvestimento();\r\n            }\r\n        }\r\n    }\r\n    public boolean criarConta(Integer idConta, String idCliente, String tipoConta) {\r\n        ContaNova novaConta = new ContaNova(idConta, idCliente, tipoConta);\r\n        baseContas.add(novaConta);\r\n        return true;\r\n    }\r\n\r\n    public boolean criarNovoCadastro(String idCliente, Integer idContaCorrente, Integer idContaPoupanca, Integer\r\n            idContaInvestimento) {\r\n        ContasCliente novoCadastro = new ContasCliente(idCliente, idContaCorrente, idContaPoupanca, idContaInvestimento);\r\n        baseContasCliente.add(novoCadastro);\r\n        return true;\r\n    }\r\n\r\n    public void maxIdsContas() {\r\n        Integer idContaCorrenteAtual = 0;\r\n        Integer idContaPoupancaAtual = 0;\r\n        Integer idContaInvestimentoAtual = 0;\r\n        Integer idContaCorrenteAnterior = 0;\r\n        Integer idContaPoupancaAnterior = 0;\r\n        Integer idContaInvestimentoAnterior = 0;\r\n\r\n        setIdContaCorrenteMax(0);\r\n        setIdContaPoupancaMax(0);\r\n        setIdContaInvestimentoMax(0);\r\n\r\n        for (ContasCliente c : baseContasCliente) {\r\n            idContaCorrenteAnterior = idContaCorrenteAtual;\r\n            idContaPoupancaAnterior = idContaPoupancaAtual;\r\n            idContaInvestimentoAnterior = idContaInvestimentoAtual;\r\n            idContaCorrenteAtual = c.getIDContaCorrente();\r\n            idContaPoupancaAtual = c.getIDContaPoupanca();\r\n            idContaInvestimentoAtual = c.getIDContaInvestimento();\r\n            if (idContaCorrenteAtual >= idContaCorrenteAnterior) {\r\n                setIdContaCorrenteMax(idContaCorrenteAtual);\r\n            } else {\r\n                setIdContaCorrenteMax(idContaCorrenteAnterior);\r\n            }\r\n            if (idContaPoupancaAtual >= idContaPoupancaAnterior) {\r\n                setIdContaPoupancaMax(idContaPoupancaAtual);\r\n            } else {\r\n                setIdContaPoupancaMax(idContaPoupancaAnterior);\r\n            }\r\n            if (idContaInvestimentoAtual >= idContaInvestimentoAnterior) {\r\n                setIdContaInvestimentoMax(idContaInvestimentoAtual);\r\n            } else {\r\n                setIdContaInvestimentoMax(idContaInvestimentoAnterior);\r\n\r\n            }\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/application/GestaoClientesContas.java b/src/application/GestaoClientesContas.java
+--- a/src/application/GestaoClientesContas.java	(revision cdd80b486f7be8b38217dca2ac9939c418a57dc3)
++++ b/src/application/GestaoClientesContas.java	(date 1667596301915)
+@@ -6,11 +6,15 @@
+ 
+ import java.util.ArrayList;
+ import java.util.List;
++import java.util.Objects;
+ 
+ public class GestaoClientesContas {
+     public static List<Cliente> baseClientes = new ArrayList<Cliente>();
+     public List<ContasCliente> baseContasCliente = new ArrayList<ContasCliente>();
+     public List<ContaNova> baseContas = new ArrayList<ContaNova>();
++    private Integer idContaCorrente;
++    private Integer idContaPoupanca;
++    private  Integer idContaInvestimento;
+ 
+     private Integer idContaCorrenteMax;
+ 
+@@ -24,6 +28,30 @@
+ 
+     public Integer idContaInvestimentoMax(){ return idContaInvestimentoMax;}
+ 
++    public Integer getIdContaCorrente() {
++        return idContaCorrente;
++    }
++
++    public void setIdContaCorrente(Integer idContaCorrente) {
++        this.idContaCorrente = idContaCorrente;
++    }
++
++    public Integer getIdContaPoupanca() {
++        return idContaPoupanca;
++    }
++
++    public void setIdContaPoupanca(Integer idContaPoupanca) {
++        this.idContaPoupanca = idContaPoupanca;
++    }
++
++    public Integer getIdContaInvestimento() {
++        return idContaInvestimento;
++    }
++
++    public void setIdContaInvestimento(Integer idContaInvestimento) {
++        this.idContaInvestimento = idContaInvestimento;
++    }
++
+     public void setIdContaCorrenteMax(Integer idContaCorrenteMax) {
+         this.idContaCorrenteMax = idContaCorrenteMax;
+     }
+@@ -36,6 +64,18 @@
+         this.idContaInvestimentoMax = idContaInvestimentoMax;
+     }
+ 
++    public Integer getIdContaCorrenteMax() {
++        return idContaCorrenteMax;
++    }
++
++    public Integer getIdContaPoupancaMax() {
++        return idContaPoupancaMax;
++    }
++
++    public Integer getIdContaInvestimentoMax() {
++        return idContaInvestimentoMax;
++    }
++
+     public boolean criarCliente(String idCliente, String nomeCliente, String tipoPessoa) {
+         Cliente novoCliente = new Cliente(idCliente, nomeCliente, tipoPessoa);
+         baseClientes.add(novoCliente);
+@@ -57,9 +97,9 @@
+         ContasCliente contasCliente = new ContasCliente(IDCliente, IDContaCorrente, IDContaPoupanca, IDContaInvestimento);
+         for (ContasCliente c : baseContasCliente) {
+             if (IDCliente.equals(c.getIDCliente().toString())) {
+-                Integer idContaCorrente = c.getIDContaCorrente();
+-                Integer idContaPoupanca = c.getIDContaPoupanca();
+-                Integer idContaInvestimento = c.getIDContaInvestimento();
++                idContaInvestimento = c.getIDContaInvestimento();
++                idContaPoupanca = c.getIDContaPoupanca();
++                idContaCorrente = c.getIDContaCorrente();
+             }
+         }
+     }
+@@ -109,7 +149,6 @@
+                 setIdContaInvestimentoMax(idContaInvestimentoAtual);
+             } else {
+                 setIdContaInvestimentoMax(idContaInvestimentoAnterior);
+-
+             }
+         }
+     }
+Index: src/application/CriadorConta.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package application;\r\n\r\nimport entities.enums.TipoConta;\r\nimport entities.enums.TipoContaJuridica;\r\nimport entities.enums.TipoPessoa;\r\n\r\nimport java.util.Scanner;\r\n\r\npublic class CriadorConta {\r\n\r\n    Scanner sc = new Scanner(System.in);\r\n\r\n    public void criadorConta() {\r\n\r\n        int i = 0;\r\n        int j = 0;\r\n\r\n        System.out.println(\"Digite o nome do responsavel: \");\r\n        String nome = sc.next();\r\n\r\n        System.out.println(\"Digite o documento do responsavel (CPF ou CNPJ): \");\r\n        String documento = sc.next();\r\n\r\n        String tipoPessoaIn2 = TipoPessoa(documento);\r\n\r\n        System.out.println(\"Digite o tipo da conta desejado: \");\r\n        if (tipoPessoaIn2.equals(TipoPessoa.PESSOA_FISICA.toString())) {\r\n            for (\r\n                    TipoConta tipoConta : TipoConta.values()) {\r\n                System.out.println(j + \" - \" + tipoConta);\r\n                j++;\r\n            }\r\n        } else {\r\n            for (\r\n                    TipoContaJuridica tipoContaJuridica : TipoContaJuridica.values()) {\r\n                System.out.println(j + \" - \" + tipoContaJuridica);\r\n                j++;\r\n            }\r\n        }\r\n\r\n        int tipoContaIn = sc.nextInt();\r\n        String tipoContaIn2 = TipoConta(tipoContaIn, tipoPessoaIn2, j);\r\n        InseriConta(nome, documento, tipoPessoaIn2, tipoContaIn2);\r\n\r\n    }\r\n\r\n    public static String TipoPessoa(String documento) {\r\n\r\n        String tipoPessoaIn1 = null;\r\n        switch (documento.length()) {\r\n            case 11:\r\n                tipoPessoaIn1 = String.valueOf(TipoPessoa.PESSOA_FISICA);\r\n                break;\r\n            case 14:\r\n                tipoPessoaIn1 = String.valueOf(TipoPessoa.PESSOA_JURICA);\r\n                break;\r\n            default:\r\n                System.out.println(\"Valor de documento Inválido\");\r\n        }\r\n        return tipoPessoaIn1;\r\n    }\r\n\r\n    public static String TipoConta(int tipoContaIn, String tipoPessoaIn2, int j) {\r\n\r\n        String tipoContaIn2 = null;\r\n        if (tipoContaIn >= j) {\r\n            System.out.println(\"Valor de Tipo Conta Inválido\");\r\n        } else if (tipoPessoaIn2.equals(TipoPessoa.PESSOA_FISICA.toString())) {\r\n            TipoConta[] tipoContaIn1 = TipoConta.values();\r\n            tipoContaIn2 = String.valueOf(tipoContaIn1[tipoContaIn]);\r\n        } else {\r\n            TipoContaJuridica[] tipoContaIn1 = TipoContaJuridica.values();\r\n            tipoContaIn2 = String.valueOf(tipoContaIn1[tipoContaIn]);\r\n        }\r\n        return tipoContaIn2;\r\n    }\r\n\r\n    public static void InseriConta(String nome, String documento, String tipoPessoaIn2, String tipoContaIn2) {\r\n        GestaoClientesContas gestaoClientesContas = new GestaoClientesContas();\r\n\r\n        Integer idContaCorrente = 0;\r\n        Integer idContaPoupanca = 0;\r\n        Integer idContaInvestimento = 0;\r\n        Integer idConta = 0;\r\n\r\n        gestaoClientesContas.maxIdsContas();\r\n\r\n        if (tipoContaIn2.equals(TipoConta.CONTA_CORRENTE.toString())) {\r\n            idContaCorrente = gestaoClientesContas.getIdContaCorrenteMax() + 1;\r\n            System.out.println(\"Id Conta Corrente: \"+gestaoClientesContas.getIdContaCorrenteMax());\r\n            idConta = idContaCorrente;\r\n        } else if (tipoContaIn2.equals(TipoConta.CONTA_INVESTIMENTO.toString())) {\r\n            idContaInvestimento = gestaoClientesContas.getIdContaInvestimentoMax() + 1;\r\n            System.out.println(\"Id Conta Investimento: \"+gestaoClientesContas.getIdContaInvestimentoMax());\r\n            idConta = idContaInvestimento;\r\n        } else {\r\n            idContaPoupanca = gestaoClientesContas.getIdContaInvestimentoMax() + 1;\r\n            System.out.println(\"Id Conta Poupanca: \"+gestaoClientesContas.getIdContaInvestimentoMax());\r\n            idConta = idContaPoupanca;\r\n        }\r\n\r\n        if (!gestaoClientesContas.validaIdCliente(nome, documento, tipoPessoaIn2)) {\r\n            gestaoClientesContas.criarCliente(nome, documento, tipoPessoaIn2);\r\n            gestaoClientesContas.criarNovoCadastro(documento, idContaCorrente, idContaPoupanca, idContaInvestimento);\r\n            gestaoClientesContas.criarConta(idConta, documento, tipoPessoaIn2);\r\n            System.out.println(\"Cliente cadastrado com sucesso!\");\r\n        }else {\r\n            gestaoClientesContas.validaContasCliente(documento,idConta,idConta,idConta);\r\n            if (gestaoClientesContas.getIdContaCorrente()!=0){\r\n                System.out.println(\"Cliente tem conta corrente\");\r\n            }\r\n            if (gestaoClientesContas.getIdContaInvestimento()!=0) {\r\n                System.out.println(\"Cliente tem conta investimento\");\r\n            }\r\n            if (gestaoClientesContas.getIdContaPoupanca()!=0){\r\n                System.out.println(\"Cliente tem conta poupança\");\r\n            }\r\n\r\n            System.out.println(\"Cliente já cadastrado!\");\r\n        }\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/application/CriadorConta.java b/src/application/CriadorConta.java
+--- a/src/application/CriadorConta.java	(revision cdd80b486f7be8b38217dca2ac9939c418a57dc3)
++++ b/src/application/CriadorConta.java	(date 1667596779507)
+@@ -56,6 +56,7 @@
+                 break;
+             default:
+                 System.out.println("Valor de documento Inválido");
++                break;
+         }
+         return tipoPessoaIn1;
+     }
+@@ -83,29 +84,29 @@
+         Integer idContaInvestimento = 0;
+         Integer idConta = 0;
+ 
+-        gestaoClientesContas.maxIdsContas();
++    /*    gestaoClientesContas.maxIdsContas();
+ 
+         if (tipoContaIn2.equals(TipoConta.CONTA_CORRENTE.toString())) {
+             idContaCorrente = gestaoClientesContas.getIdContaCorrenteMax() + 1;
+-            System.out.println("Id Conta Corrente: "+gestaoClientesContas.getIdContaCorrenteMax());
++            System.out.println("Id Conta Corrente: " + gestaoClientesContas.getIdContaCorrenteMax());
+             idConta = idContaCorrente;
+         } else if (tipoContaIn2.equals(TipoConta.CONTA_INVESTIMENTO.toString())) {
+             idContaInvestimento = gestaoClientesContas.getIdContaInvestimentoMax() + 1;
+-            System.out.println("Id Conta Investimento: "+gestaoClientesContas.getIdContaInvestimentoMax());
++            System.out.println("Id Conta Investimento: " + gestaoClientesContas.getIdContaInvestimentoMax());
+             idConta = idContaInvestimento;
+         } else {
+             idContaPoupanca = gestaoClientesContas.getIdContaInvestimentoMax() + 1;
+-            System.out.println("Id Conta Poupanca: "+gestaoClientesContas.getIdContaInvestimentoMax());
++            System.out.println("Id Conta Poupanca: " + gestaoClientesContas.getIdContaInvestimentoMax());
+             idConta = idContaPoupanca;
+         }
+-
++*/
+         if (!gestaoClientesContas.validaIdCliente(nome, documento, tipoPessoaIn2)) {
+-            gestaoClientesContas.criarCliente(nome, documento, tipoPessoaIn2);
+-            gestaoClientesContas.criarNovoCadastro(documento, idContaCorrente, idContaPoupanca, idContaInvestimento);
+-            gestaoClientesContas.criarConta(idConta, documento, tipoPessoaIn2);
++            //         gestaoClientesContas.criarCliente(nome, documento, tipoPessoaIn2);
++            //         gestaoClientesContas.criarNovoCadastro(documento, idContaCorrente, idContaPoupanca, idContaInvestimento);
++            //         gestaoClientesContas.criarConta(idConta, documento, tipoPessoaIn2);
+             System.out.println("Cliente cadastrado com sucesso!");
+-        }else {
+-            gestaoClientesContas.validaContasCliente(documento,idConta,idConta,idConta);
++        } else {
++   /*         gestaoClientesContas.validaContasCliente(documento,idConta,idConta,idConta);
+             if (gestaoClientesContas.getIdContaCorrente()!=0){
+                 System.out.println("Cliente tem conta corrente");
+             }
+@@ -115,7 +116,7 @@
+             if (gestaoClientesContas.getIdContaPoupanca()!=0){
+                 System.out.println("Cliente tem conta poupança");
+             }
+-
++*/
+             System.out.println("Cliente já cadastrado!");
+         }
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"d3c0cf20-1e2e-4257-8fa3-c43af429af70\" name=\"Changes\" comment=\"Alterado o CriadorConta e o GestaoClientesContas\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/application/CriadorConta.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/application/CriadorConta.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/application/Program.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/application/Program.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/entities/Conta.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/entities/SaldoConta.java\" beforeDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"Enum\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2H0emtLG6oqkbrcy29no6pyni6a\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,\r\n    &quot;ignore.preview.features.used&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Projetos/projeto.modulo.grupo&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,\r\n    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateClassDialog.RecentsKey\">\r\n      <recent name=\"application\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"d3c0cf20-1e2e-4257-8fa3-c43af429af70\" name=\"Changes\" comment=\"\" />\r\n      <created>1667426590682</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1667426590682</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Primeiro Commit\">\r\n      <created>1667437916728</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667437916728</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Segundo commit\">\r\n      <created>1667449160799</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667449160799</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Commit Classe Objeto Conta\">\r\n      <created>1667517428929</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667517428929</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Commit Classe Objeto Conta\">\r\n      <created>1667517542905</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667517542905</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Commit Classe Objeto Conta\">\r\n      <created>1667517604969</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667517604969</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Commit Classe Objeto Conta\">\r\n      <created>1667518150909</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667518150909</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Commit Classe Objeto Conta\">\r\n      <created>1667518369077</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667518369077</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Commit Classe Objeto Conta\">\r\n      <created>1667519106686</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667519106686</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Commit Parametros\">\r\n      <created>1667520064203</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667520064203</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"CLasse Objeto Cliente\">\r\n      <created>1667521053997</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667521053997</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"CLasse Objeto ContasCliente\">\r\n      <created>1667522857238</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667522857238</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"CLasse GestaoClientesCOntas contendo BaseCliente BaseConta e métodos criar cliente e criar conta.\">\r\n      <created>1667524282738</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667524282738</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Alterado o CriadorConta e o GestaoClientesContas\">\r\n      <created>1667559725827</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667559725827</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"14\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Primeiro Commit\" />\r\n    <MESSAGE value=\"Segundo commit\" />\r\n    <MESSAGE value=\"Commit Classe Objeto Conta\" />\r\n    <MESSAGE value=\"Commit Parametros\" />\r\n    <MESSAGE value=\"CLasse Objeto Cliente\" />\r\n    <MESSAGE value=\"CLasse Objeto ContasCliente\" />\r\n    <MESSAGE value=\"CLasse GestaoClientesCOntas contendo BaseCliente BaseConta e métodos criar cliente e criar conta.\" />\r\n    <MESSAGE value=\"Atualizando métodos GestaoClientesContas!\" />\r\n    <MESSAGE value=\"Alterado o CriadorConta e o GestaoClientesContas\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Alterado o CriadorConta e o GestaoClientesContas\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <breakpoint enabled=\"true\" type=\"java-exception\">\r\n          <properties class=\"java.lang.NumberFormatException\" package=\"java.lang\" />\r\n          <option name=\"timeStamp\" value=\"3\" />\r\n        </breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision cdd80b486f7be8b38217dca2ac9939c418a57dc3)
++++ b/.idea/workspace.xml	(date 1667595076896)
+@@ -4,9 +4,7 @@
+     <list default="true" id="d3c0cf20-1e2e-4257-8fa3-c43af429af70" name="Changes" comment="Alterado o CriadorConta e o GestaoClientesContas">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/application/CriadorConta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/CriadorConta.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/application/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Program.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/entities/Conta.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/entities/SaldoConta.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/application/GestaoClientesContas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/GestaoClientesContas.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -150,7 +148,21 @@
+       <option name="project" value="LOCAL" />
+       <updated>1667559725827</updated>
+     </task>
+-    <option name="localTasksCounter" value="14" />
++    <task id="LOCAL-00014" summary="Alterado o CriadorConta e o GestaoClientesContas">
++      <created>1667594191314</created>
++      <option name="number" value="00014" />
++      <option name="presentableId" value="LOCAL-00014" />
++      <option name="project" value="LOCAL" />
++      <updated>1667594191314</updated>
++    </task>
++    <task id="LOCAL-00015" summary="Alterado o CriadorConta e o GestaoClientesContas">
++      <created>1667594208068</created>
++      <option name="number" value="00015" />
++      <option name="presentableId" value="LOCAL-00015" />
++      <option name="project" value="LOCAL" />
++      <updated>1667594208068</updated>
++    </task>
++    <option name="localTasksCounter" value="16" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">

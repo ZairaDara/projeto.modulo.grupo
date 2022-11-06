@@ -1,0 +1,111 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"d3c0cf20-1e2e-4257-8fa3-c43af429af70\" name=\"Changes\" comment=\"Alterado o CriadorConta e o GestaoClientesContas\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/application/MenuOperacoes.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/entities/enums/TipoOperacao.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/application/CriadorConta.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/application/CriadorConta.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/application/Program.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/application/Program.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"Enum\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2H0emtLG6oqkbrcy29no6pyni6a\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"dart.analysis.tool.window.visible\": \"false\",\r\n    \"ignore.preview.features.used\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Projetos/projeto.modulo.grupo\",\r\n    \"settings.editor.selected.configurable\": \"vcs.Git\",\r\n    \"show.migrate.to.gradle.popup\": \"false\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateClassDialog.RecentsKey\">\r\n      <recent name=\"application\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"d3c0cf20-1e2e-4257-8fa3-c43af429af70\" name=\"Changes\" comment=\"\" />\r\n      <created>1667426590682</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1667426590682</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Primeiro Commit\">\r\n      <created>1667437916728</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667437916728</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Segundo commit\">\r\n      <created>1667449160799</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667449160799</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Commit Classe Objeto Conta\">\r\n      <created>1667517428929</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667517428929</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Commit Classe Objeto Conta\">\r\n      <created>1667517542905</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667517542905</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Commit Classe Objeto Conta\">\r\n      <created>1667517604969</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667517604969</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Commit Classe Objeto Conta\">\r\n      <created>1667518150909</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667518150909</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Commit Classe Objeto Conta\">\r\n      <created>1667518369077</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667518369077</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Commit Classe Objeto Conta\">\r\n      <created>1667519106686</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667519106686</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Commit Parametros\">\r\n      <created>1667520064203</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667520064203</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"CLasse Objeto Cliente\">\r\n      <created>1667521053997</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667521053997</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"CLasse Objeto ContasCliente\">\r\n      <created>1667522857238</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667522857238</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"CLasse GestaoClientesCOntas contendo BaseCliente BaseConta e métodos criar cliente e criar conta.\">\r\n      <created>1667524282738</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667524282738</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Alterado o CriadorConta e o GestaoClientesContas\">\r\n      <created>1667559725827</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667559725827</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"14\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Primeiro Commit\" />\r\n    <MESSAGE value=\"Segundo commit\" />\r\n    <MESSAGE value=\"Commit Classe Objeto Conta\" />\r\n    <MESSAGE value=\"Commit Parametros\" />\r\n    <MESSAGE value=\"CLasse Objeto Cliente\" />\r\n    <MESSAGE value=\"CLasse Objeto ContasCliente\" />\r\n    <MESSAGE value=\"CLasse GestaoClientesCOntas contendo BaseCliente BaseConta e métodos criar cliente e criar conta.\" />\r\n    <MESSAGE value=\"Atualizando métodos GestaoClientesContas!\" />\r\n    <MESSAGE value=\"Alterado o CriadorConta e o GestaoClientesContas\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Alterado o CriadorConta e o GestaoClientesContas\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <breakpoint enabled=\"true\" type=\"java-exception\">\r\n          <properties class=\"java.lang.NumberFormatException\" package=\"java.lang\" />\r\n          <option name=\"timeStamp\" value=\"3\" />\r\n        </breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-method\">\r\n          <url>file://$PROJECT_DIR$/src/entities/Conta.java</url>\r\n          <line>113</line>\r\n          <properties class=\"entities.Conta\" method=\"getControleInsert\">\r\n            <option name=\"EMULATED\" value=\"true\" />\r\n            <option name=\"WATCH_EXIT\" value=\"false\" />\r\n          </properties>\r\n          <option name=\"timeStamp\" value=\"4\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision e515979a65cdf03a1be6089db32b1b48907cfeb0)
++++ b/.idea/workspace.xml	(date 1667658201922)
+@@ -1,13 +1,11 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="d3c0cf20-1e2e-4257-8fa3-c43af429af70" name="Changes" comment="Alterado o CriadorConta e o GestaoClientesContas">
+-      <change afterPath="$PROJECT_DIR$/src/application/MenuOperacoes.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/entities/enums/TipoOperacao.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++    <list default="true" id="d3c0cf20-1e2e-4257-8fa3-c43af429af70" name="Changes" comment="teste de commit">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/application/CriadorConta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/CriadorConta.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/application/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Program.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -42,7 +40,7 @@
+     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+     "dart.analysis.tool.window.visible": "false",
+     "ignore.preview.features.used": "true",
+-    "last_opened_file_path": "C:/Projetos/projeto.modulo.grupo",
++    "last_opened_file_path": "C:/Users/Zaira/projeto1",
+     "settings.editor.selected.configurable": "vcs.Git",
+     "show.migrate.to.gradle.popup": "false"
+   }
+@@ -152,7 +150,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1667559725827</updated>
+     </task>
+-    <option name="localTasksCounter" value="14" />
++    <task id="LOCAL-00014" summary="teste de commit">
++      <created>1667596903436</created>
++      <option name="number" value="00014" />
++      <option name="presentableId" value="LOCAL-00014" />
++      <option name="project" value="LOCAL" />
++      <updated>1667596903436</updated>
++    </task>
++    <option name="localTasksCounter" value="15" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -176,7 +181,8 @@
+     <MESSAGE value="CLasse GestaoClientesCOntas contendo BaseCliente BaseConta e métodos criar cliente e criar conta." />
+     <MESSAGE value="Atualizando métodos GestaoClientesContas!" />
+     <MESSAGE value="Alterado o CriadorConta e o GestaoClientesContas" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Alterado o CriadorConta e o GestaoClientesContas" />
++    <MESSAGE value="teste de commit" />
++    <option name="LAST_COMMIT_MESSAGE" value="teste de commit" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+@@ -197,4 +203,9 @@
+       </breakpoints>
+     </breakpoint-manager>
+   </component>
++  <component name="com.intellij.coverage.CoverageDataManagerImpl">
++    <SUITE FILE_PATH="coverage/projeto_modulo_grupo$Program.ic" NAME="Program Coverage Results" MODIFIED="1667592183424" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++      <FILTER>application.*</FILTER>
++    </SUITE>
++  </component>
+ </project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"11\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision e515979a65cdf03a1be6089db32b1b48907cfeb0)
++++ b/.idea/misc.xml	(date 1667658201920)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>### IntelliJ IDEA ###\r\nout/\r\n!**/src/main/**/out/\r\n!**/src/test/**/out/\r\n\r\n### Eclipse ###\r\n.apt_generated\r\n.classpath\r\n.factorypath\r\n.project\r\n.settings\r\n.springBeans\r\n.sts4-cache\r\nbin/\r\n!**/src/main/**/bin/\r\n!**/src/test/**/bin/\r\n\r\n### NetBeans ###\r\n/nbproject/private/\r\n/nbbuild/\r\n/dist/\r\n/nbdist/\r\n/.nb-gradle/\r\n\r\n### VS Code ###\r\n.vscode/\r\n\r\n### Mac OS ###\r\n.DS_Store
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+--- a/.gitignore	(revision e515979a65cdf03a1be6089db32b1b48907cfeb0)
++++ b/.gitignore	(date 1667658488306)
+@@ -26,4 +26,5 @@
+ .vscode/
+ 
+ ### Mac OS ###
+-.DS_Store
+\ No newline at end of file
++.DS_Store
++/.idea/
