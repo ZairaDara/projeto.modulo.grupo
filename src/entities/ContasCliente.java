@@ -1,17 +1,14 @@
 package entities;
 
 public class ContasCliente {
-    private String IDCliente = "00000000000000";
+
+    private Cliente cliente;
     private Integer IDContaCorrente = 0;
     private Integer IDContaPoupanca = 0;
     private Integer IDContaInvestimento = 0;
 
     public String getIDCliente() {
-        return IDCliente;
-    }
-
-    public void setIDCliente(String IDCliente) {
-        this.IDCliente = IDCliente;
+        return cliente.getIdCliente().toString();
     }
 
     public Integer getIDContaCorrente() {
@@ -38,8 +35,8 @@ public class ContasCliente {
         this.IDContaInvestimento = IDContaInvestimento;
     }
 
-    public ContasCliente(String IDCliente, Integer IDContaCorrente, Integer IDContaPoupanca, Integer IDContaInvestimento) {
-        this.IDCliente = IDCliente;
+    public ContasCliente(Cliente cliente, Integer IDContaCorrente, Integer IDContaPoupanca, Integer IDContaInvestimento) {
+        this.cliente = cliente;
         this.IDContaCorrente = IDContaCorrente;
         this.IDContaPoupanca = IDContaPoupanca;
         this.IDContaInvestimento = IDContaInvestimento;
@@ -48,7 +45,7 @@ public class ContasCliente {
     @Override
     public String toString() {
         return "ContasCliente{" +
-                "Identificador do Cliente='" + IDCliente + '\'' +
+                "Identificador do Cliente='" + cliente.getIdCliente() + '\'' +
                 ", Conta Corrente=" + IDContaCorrente +
                 ", Conta Poupanca=" + IDContaPoupanca +
                 ", Conta Investimento=" + IDContaInvestimento +

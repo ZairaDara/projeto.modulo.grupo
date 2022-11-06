@@ -1,5 +1,7 @@
 package entities;
 
+import entities.enums.TipoPessoa;
+
 public abstract class Cliente {
     private String nomeCliente = "Nome";
 
@@ -12,6 +14,8 @@ public abstract class Cliente {
     }
 
     public abstract Object getIdCliente();
+
+    public abstract TipoPessoa getTipoPessoa ();
 
     @Override
     public String toString() {

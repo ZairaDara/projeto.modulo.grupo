@@ -1,15 +1,18 @@
 package entities;
 
+import entities.enums.TipoConta;
+
 import java.math.BigDecimal;
 
 public class ContaCorrente extends ContaNova{
-    private String TipoConta = entities.enums.TipoConta.CONTA_CORRENTE.toString();
 
-    public String getTipoConta() {
-        return TipoConta;
+    private TipoConta tipoConta = entities.enums.TipoConta.CONTA_CORRENTE;
+
+    public TipoConta getTipoConta() {
+        return tipoConta;
     }
-    public ContaCorrente(Integer idConta, String idCliente) {
-        super(idConta, idCliente);
+    public ContaCorrente(Integer idConta, Cliente cliente) {
+        super(idConta, cliente);
     }
 
 }

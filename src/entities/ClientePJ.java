@@ -5,7 +5,7 @@ import entities.enums.TipoPessoa;
 public class ClientePJ extends Cliente{
     private String cnpjCliente = "00000000000000";
 
-    private final String tipoPessoaCliente = TipoPessoa.PESSOA_JURIDICA.toString();
+    private final TipoPessoa tipoPessoaCliente = TipoPessoa.PESSOA_JURIDICA;
 
     public ClientePJ(String idCliente, String nomeCliente) {
         this.cnpjCliente = idCliente;
@@ -16,11 +16,16 @@ public class ClientePJ extends Cliente{
         return cnpjCliente;
     }
 
+    @Override
+    public TipoPessoa getTipoPessoa() {
+        return this.tipoPessoaCliente;
+    }
+
     public void setIdCliente(String idCliente) {
         this.cnpjCliente = idCliente;
     }
 
-    public String getTipoPessoaCliente() {
-        return tipoPessoaCliente;
-    }
+
+
+
 }

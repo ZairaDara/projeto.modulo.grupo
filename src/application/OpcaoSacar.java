@@ -1,7 +1,6 @@
 package application;
 
 import entities.ContaNova;
-import entities.ContasCliente;
 import entities.enums.TipoConta;
 import entities.enums.TipoContaJuridica;
 import entities.enums.TipoPessoa;
@@ -9,17 +8,18 @@ import entities.enums.TipoPessoa;
 import java.math.BigDecimal;
 import java.util.Scanner;
 
-public class OpcaoDepositar {
+public class OpcaoSacar {
 
     GestaoClientesContas gestaoClientesContas = new GestaoClientesContas();
-    public void depositar(){
-        int j = 0;
-    Scanner scanner = new Scanner(System.in);
-    System.out.println("Digite o documento do responsavel (CPF ou CNPJ): ");
-    String documento = scanner.next();
 
-    CriadorConta criadorConta = new CriadorConta();
-    String tipoPessoaDoc = criadorConta.TipoPessoa(documento);
+    public void sacar() {
+        int j = 0;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite o documento do responsavel (CPF ou CNPJ): ");
+        String documento = scanner.next();
+
+        CriadorConta criadorConta = new CriadorConta();
+        String tipoPessoaDoc = criadorConta.TipoPessoa(documento);
 
         System.out.println("Digite o tipo da conta desejado: ");
         if (tipoPessoaDoc.equals(TipoPessoa.PESSOA_FISICA.toString())) {
@@ -31,7 +31,7 @@ public class OpcaoDepositar {
             j++;
         } else {
             for (
-                TipoContaJuridica tipoContaJuridica : TipoContaJuridica.values()) {
+                    TipoContaJuridica tipoContaJuridica : TipoContaJuridica.values()) {
                 System.out.println(j + " - " + tipoContaJuridica);
                 j++;
             }
@@ -51,13 +51,13 @@ public class OpcaoDepositar {
         }
 
 
-        System.out.println("Informe o valor do deposito ou investimento: ");
-        BigDecimal valorDeposito = scanner.nextBigDecimal();
+        System.out.println("Informe o valor do saque: ");
+        BigDecimal valorSaque = scanner.nextBigDecimal();
 
         ContaNova contaNova = gestaoClientesContas.buscaContaCliente(documento, tipoconta);
-        if (contaNova!= null){
-            contaNova.depositar(valorDeposito);
-        }else {
+        if (contaNova != null) {
+            contaNova.sacar(valorSaque);
+        } else {
             System.out.println(" xxxxxx Cliente não possui conta. Crie uma conta para realizar a operação xxxxxx");
         }
 
