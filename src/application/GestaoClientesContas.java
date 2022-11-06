@@ -6,28 +6,28 @@ import entities.enums.TipoPessoa;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class GestaoClientesContas {
     public static List<Cliente> baseClientes = new ArrayList<Cliente>();
-    public List<ContasCliente> baseContasCliente = new ArrayList<ContasCliente>();
-    public List<ContaNova> baseContas = new ArrayList<ContaNova>();
+    public static List<ContasCliente> baseContasCliente = new ArrayList<ContasCliente>();
+    public static List<ContaNova> baseContas = new ArrayList<ContaNova>();
 
-    private Integer idContaCorrenteMax;
+    private static Integer idContaCorrenteMax;
 
-    public Integer idContaCorrenteMax(){ return idContaCorrenteMax;}
+    private static Integer idContaPoupancaMax;
 
-    private Integer idContaPoupancaMax;
+    private static Integer idContaInvestimentoMax;
 
-    public Integer idContaPoupancaMax(){ return idContaPoupancaMax;}
+    private static Integer idContaInvestimento;
 
-    private Integer idContaInvestimentoMax;
+    private static Integer idContaPoupanca;
 
-    public Integer idContaInvestimentoMax(){ return idContaInvestimentoMax;}
+    private static Integer idContaCorrente;
 
     public void setIdContaCorrenteMax(Integer idContaCorrenteMax) {
         this.idContaCorrenteMax = idContaCorrenteMax;
     }
-
     public void setIdContaPoupancaMax(Integer idContaPoupancaMax) {
         this.idContaPoupancaMax = idContaPoupancaMax;
     }
@@ -36,12 +36,48 @@ public class GestaoClientesContas {
         this.idContaInvestimentoMax = idContaInvestimentoMax;
     }
 
+    public Integer getIdContaCorrenteMax() {
+        return this.idContaCorrenteMax;
+    }
+
+    public Integer getIdContaPoupancaMax() {
+        return this.idContaPoupancaMax;
+    }
+
+    public Integer getIdContaInvestimentoMax() {
+        return this.idContaInvestimentoMax;
+    }
+
+    public static Integer getIdContaInvestimento() {
+        return idContaInvestimento;
+    }
+
+    public static void setIdContaInvestimento(Integer idContaInvestimento) {
+        GestaoClientesContas.idContaInvestimento = idContaInvestimento;
+    }
+
+    public static Integer getIdContaPoupanca() {
+        return idContaPoupanca;
+    }
+
+    public static void setIdContaPoupanca(Integer idContaPoupanca) {
+        GestaoClientesContas.idContaPoupanca = idContaPoupanca;
+    }
+
+    public static Integer getIdContaCorrente() {
+        return idContaCorrente;
+    }
+
+    public static void setIdContaCorrente(Integer idContaCorrente) {
+        GestaoClientesContas.idContaCorrente = idContaCorrente;
+    }
+
     public boolean criarCliente(String idCliente, String nomeCliente, String tipoPessoa) {
-        if (tipoPessoa.equals(TipoPessoa.PESSOA_FISICA.toString())){
+        if (tipoPessoa.equals(TipoPessoa.PESSOA_FISICA.toString())) {
             Cliente novoCliente = new ClientePF(idCliente, nomeCliente);
             baseClientes.add(novoCliente);
             return true;
-        } else if (tipoPessoa.equals(TipoPessoa.PESSOA_JURIDICA.toString())){
+        } else if (tipoPessoa.equals(TipoPessoa.PESSOA_JURIDICA.toString())) {
             Cliente novoCliente = new ClientePJ(idCliente, nomeCliente);
             baseClientes.add(novoCliente);
             return true;
@@ -73,27 +109,31 @@ public class GestaoClientesContas {
         return valida;
     }
 
-    public void validaContasCliente(String IDCliente, Integer IDContaCorrente, Integer IDContaPoupanca, Integer IDContaInvestimento) {
+    public boolean validaContasCliente(String IDCliente, Integer IDContaCorrente, Integer IDContaPoupanca, Integer IDContaInvestimento) {
         ContasCliente contasCliente = new ContasCliente(IDCliente, IDContaCorrente, IDContaPoupanca, IDContaInvestimento);
+        boolean valida = false;
         for (ContasCliente c : baseContasCliente) {
             if (IDCliente.equals(c.getIDCliente().toString())) {
-                Integer idContaCorrente = c.getIDContaCorrente();
-                Integer idContaPoupanca = c.getIDContaPoupanca();
-                Integer idContaInvestimento = c.getIDContaInvestimento();
+                idContaInvestimento = c.getIDContaInvestimento();
+                idContaPoupanca = c.getIDContaPoupanca();
+                idContaCorrente = c.getIDContaCorrente();
+                valida = true;
             }
         }
+        return valida;
     }
-    public boolean criarConta(Integer idConta, String idCliente, String tipoConta) {
+
+    public boolean criarConta(Integer idContaCorrente, Integer idContaPoupanca,Integer idContaInvestimento, String idCliente, String tipoConta) {
         if (tipoConta.equals(TipoConta.CONTA_CORRENTE.toString())) {
-            ContaNova novaConta = new ContaCorrente(idConta, idCliente);
+            ContaNova novaConta = new ContaCorrente(idContaCorrente, idCliente);
             baseContas.add(novaConta);
             return true;
-        }else if(tipoConta.equals(TipoConta.CONTA_POUPANCA.toString())){
-            ContaNova novaConta = new ContaPoupanca(idConta, idCliente);
+        } else if (tipoConta.equals(TipoConta.CONTA_POUPANCA.toString())) {
+            ContaNova novaConta = new ContaPoupanca(idContaPoupanca, idCliente);
             baseContas.add(novaConta);
             return true;
-        } else if (tipoConta.equals(TipoConta.CONTA_INVESTIMENTO.toString())){
-            ContaNova novaConta = new ContaInvestimento(idConta, idCliente);
+        } else if (tipoConta.equals(TipoConta.CONTA_INVESTIMENTO.toString())) {
+            ContaNova novaConta = new ContaInvestimento(idContaInvestimento, idCliente);
             baseContas.add(novaConta);
             return true;
         } else {
@@ -109,51 +149,53 @@ public class GestaoClientesContas {
         return true;
     }
 
-    public void maxIdsContas() {
-        Integer idContaCorrenteAtual = 0;
-        Integer idContaPoupancaAtual = 0;
-        Integer idContaInvestimentoAtual = 0;
-        Integer idContaCorrenteAnterior = 0;
-        Integer idContaPoupancaAnterior = 0;
-        Integer idContaInvestimentoAnterior = 0;
-
-        setIdContaCorrenteMax(0);
-        setIdContaPoupancaMax(0);
-        setIdContaInvestimentoMax(0);
-
+    public boolean atualizaNovoCadastro(String idCliente, Integer idContaCorrente, Integer idContaPoupanca, Integer
+            idContaInvestimento) {
+        ContasCliente atualizaCadastro = new ContasCliente(idCliente, idContaCorrente, idContaPoupanca, idContaInvestimento);
+        boolean valida = false;
         for (ContasCliente c : baseContasCliente) {
-            idContaCorrenteAnterior = idContaCorrenteAtual;
-            idContaPoupancaAnterior = idContaPoupancaAtual;
-            idContaInvestimentoAnterior = idContaInvestimentoAtual;
-            idContaCorrenteAtual = c.getIDContaCorrente();
-            idContaPoupancaAtual = c.getIDContaPoupanca();
-            idContaInvestimentoAtual = c.getIDContaInvestimento();
-            if (idContaCorrenteAtual >= idContaCorrenteAnterior) {
-                setIdContaCorrenteMax(idContaCorrenteAtual);
-            } else {
-                setIdContaCorrenteMax(idContaCorrenteAnterior);
-            }
-            if (idContaPoupancaAtual >= idContaPoupancaAnterior) {
-                setIdContaPoupancaMax(idContaPoupancaAtual);
-            } else {
-                setIdContaPoupancaMax(idContaPoupancaAnterior);
-            }
-            if (idContaInvestimentoAtual >= idContaInvestimentoAnterior) {
-                setIdContaInvestimentoMax(idContaInvestimentoAtual);
-            } else {
-                setIdContaInvestimentoMax(idContaInvestimentoAnterior);
-
+            if (idCliente.equals(c.getIDCliente().toString())) {
+                if (idCliente.equals(c.getIDCliente().toString())) {
+                    c.setIDContaCorrente(idContaCorrente);
+                    c.setIDContaInvestimento(idContaInvestimento);
+                    c.setIDContaPoupanca(idContaPoupanca);
+                    valida = true;
+                }
             }
         }
-    }
-    public Integer getIdContaCorrenteMax() {
-        return this.idContaCorrenteMax;
-    }
-    public Integer getIdContaInvestimentoMax(){
-        return this.idContaInvestimentoMax;
-    }
-    public Integer getIdContaPoupancaMax(){
-        return this.idContaPoupancaMax;
+        return valida;
     }
 
+    public boolean atualizaConta(Integer idContaCorrente, Integer idContaPoupanca,Integer idContaInvestimento, String idCliente, String tipoConta) {
+        boolean valida = false;
+        if (tipoConta.equals(TipoConta.CONTA_CORRENTE.toString())) {
+            ContaNova novaConta = new ContaCorrente(idContaCorrente, idCliente);
+            for (ContaNova c: baseContas){
+                if (idCliente.equals(c.getIDCliente().toString())){
+                    novaConta.setIDConta(idContaCorrente);
+                    valida = true;
+                }
+            }
+        } else if (tipoConta.equals(TipoConta.CONTA_POUPANCA.toString())) {
+            ContaNova novaConta = new ContaPoupanca(idContaPoupanca, idCliente);
+            for (ContaNova c: baseContas){
+                if (idCliente.equals(c.getIDCliente().toString())){
+                    novaConta.setIDConta(idContaPoupanca);
+                    valida = true;
+                }
+            }
+        } else if (tipoConta.equals(TipoConta.CONTA_INVESTIMENTO.toString())) {
+            ContaNova novaConta = new ContaInvestimento(idContaInvestimento, idCliente);
+            for (ContaNova c: baseContas){
+                if (idCliente.equals(c.getIDCliente().toString())){
+                    novaConta.setIDConta(idContaInvestimento);
+                    valida = true;
+                }
+            }
+        } else {
+            System.out.println("Falha para atualizar baseContas");
+            valida = false;
+        }
+        return valida;
+    }
 }

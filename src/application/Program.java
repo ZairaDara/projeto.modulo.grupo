@@ -1,6 +1,9 @@
 package application;
 
+import entities.enums.TipoConta;
+
 import java.util.Locale;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Program {
@@ -13,7 +16,7 @@ public class Program {
         System.out.println(" *** Programa simule app bancario ***");
 
         int opcao = 1;
-        while(opcao == 1 || opcao == 2 || opcao == 3) {
+        while (opcao == 1 || opcao == 2 || opcao == 3) {
             System.out.println(" Selecione a opcao desejada: ");
             System.out.println("1- Criar uma conta nova");
             System.out.println("2- Realizar uma operacao");
@@ -27,6 +30,7 @@ public class Program {
     public static void Roteador(int opcao) {
 
         CriadorConta criadorConta = new CriadorConta();
+        MenuOperacoes menuOperacoes = new MenuOperacoes();
 
         switch (opcao) {
             case 1:
@@ -35,7 +39,6 @@ public class Program {
                 break;
             case 2:
                 System.out.println("Opcao de realizar operacoes");
-                MenuOperacoes menuOperacoes = new MenuOperacoes();
                 menuOperacoes.SelecionaOpcao();
             case 3:
                 System.out.println("Opcao para imprimir todas as informacoes de todas as contas");
