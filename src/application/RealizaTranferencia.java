@@ -13,11 +13,9 @@ import static application.CriadorConta.gestaoClientesContas;
 public class RealizaTranferencia {
 
     Scanner scanner = new Scanner(System.in);
-    public void efetivatransferencia(){
-        int j = 0;
-        System.out.println("Digite o valor para transferir: ");
-        BigDecimal vltranf = scanner.nextBigDecimal();
+    public void efetivatransferencia(BigDecimal vltranf){
 
+        int j =0;
         System.out.println("Digite o CPF/CNPJ que irá receber o valor:");
         String docfavorecido = scanner.next();
 
@@ -25,6 +23,7 @@ public class RealizaTranferencia {
         String nmfavorecido = scanner.next();
 
         System.out.println("Digite o tipo da conta desejado: ");
+
         CriadorConta criadorConta = new CriadorConta();
         String tipoPessoaDoc = criadorConta.TipoPessoa(docfavorecido);
 
@@ -59,7 +58,7 @@ public class RealizaTranferencia {
 
         ContaNova contaNova = gestaoClientesContas.buscaContaCliente(docfavorecido, tipoconta);
         if (contaNova!= null){
-            contaNova.depositar(vltranf);
+             contaNova.depositar(vltranf);
         }else {
             System.out.println(" xxxxxx Cliente não possui conta. Crie uma conta para realizar a operação xxxxxx");
         }
