@@ -1,5 +1,6 @@
 package application;
 
+import entities.Cliente;
 import entities.ContaNova;
 import entities.ContasCliente;
 import entities.enums.TipoConta;
@@ -19,6 +20,7 @@ public class OpcaoTransferir {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite o documento do responsavel (CPF ou CNPJ): ");
         String documento = scanner.next();
+
 
         CriadorConta criadorConta = new CriadorConta();
         String tipoPessoaDoc = criadorConta.TipoPessoa(documento);
@@ -53,11 +55,14 @@ public class OpcaoTransferir {
                 break;
         }
 
+        System.out.println("Digite o valor para transferir: ");
+        BigDecimal vltranf = scanner.nextBigDecimal();
 
         ContaNova contaNova = gestaoClientesContas.buscaContaCliente(documento, tipoconta);
         if (contaNova!= null){
+            contaNova.sacar(vltranf);
            RealizaTranferencia realizaTranferencia = new RealizaTranferencia();
-           realizaTranferencia.efetivatransferencia();
+           realizaTranferencia.efetivatransferencia(vltranf);
         }else {
             System.out.println(" xxxxxx Cliente não possui conta. Crie uma conta para realizar a operação xxxxxx");
         }
