@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3c0cf20-1e2e-4257-8fa3-c43af429af70" name="Changes" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/application/CriadorConta.java&#10;#&#9;src/application/GestaoClientesContas.java&#10;#&#9;src/application/Program.java">
+      <change afterPath="$PROJECT_DIR$/src/application/OpcaoTransferir.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/application/RealizaTranferencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2022_05_06__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2022_05_06__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2022_17_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_11_2022_17_28__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2022_09_50__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2022_09_50__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2022_11_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_11_2022_11_28__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/CriadorConta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/CriadorConta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/MenuOperacoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/MenuOperacoes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/ContaNova.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/ContaNova.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,23 +240,18 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/application/GestaoClientesContas.java</url>
-          <line>94</line>
+          <line>177</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/application/GestaoClientesContas.java</url>
-          <line>116</line>
+          <line>242</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/application/GestaoClientesContas.java</url>
-          <line>130</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/application/Program.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="19" />
+          <url>file://$PROJECT_DIR$/src/application/OpcaoTransferir.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -257,5 +260,10 @@
         <watch expression="baseClientes.get(0)" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/projeto_modulo_grupo$Program.ic" NAME="Program Coverage Results" MODIFIED="1667787649029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>application.*</FILTER>
+    </SUITE>
   </component>
 </project>

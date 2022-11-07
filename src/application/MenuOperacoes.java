@@ -34,6 +34,8 @@ public class MenuOperacoes {
                 break;
             case 3:
                 System.out.println("3- Transferir");
+                OpcaoTransferir opcaoTransferir = new OpcaoTransferir();
+                opcaoTransferir.tranferir();
                 break;
             case 4:
                 System.out.println("4- Investir");
