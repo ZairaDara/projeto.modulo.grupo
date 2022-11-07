@@ -58,7 +58,8 @@ public class RealizaTranferencia {
 
         ContaNova contaNova = gestaoClientesContas.buscaContaCliente(docfavorecido, tipoconta);
         if (contaNova!= null){
-             contaNova.depositar(vltranf);
+            contaNova.depositar(vltranf);
+            System.out.println("Tranferencia realizado com sucesso!");
         }else {
             System.out.println(" xxxxxx Cliente não possui conta. Crie uma conta para realizar a operação xxxxxx");
         }

@@ -57,7 +57,7 @@ public class OpcaoDepositar {
         ContaNova contaNova = gestaoClientesContas.buscaContaCliente(documento, tipoconta);
         if (contaNova!= null){
             contaNova.depositar(valorDeposito);
-            System.out.println("Deposito realizado com sucesso!");
+            System.out.println("Deposito ou investimento realizado com sucesso!!!");
         }else {
             System.out.println(" xxxxxx Cliente não possui conta. Crie uma conta para realizar a operação xxxxxx");
         }

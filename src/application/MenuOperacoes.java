@@ -28,7 +28,7 @@ public class MenuOperacoes {
                 opcaoSacar.sacar();
                 break;
             case 2:
-                System.out.println("2- Depositar");
+                System.out.println("2- Depositar ou investir");
                 OpcaoDepositar opcaoDepositar = new OpcaoDepositar();
                 opcaoDepositar.depositar();
                 break;
@@ -36,9 +36,6 @@ public class MenuOperacoes {
                 System.out.println("3- Transferir");
                 OpcaoTransferir opcaoTransferir = new OpcaoTransferir();
                 opcaoTransferir.tranferir();
-                break;
-            case 4:
-                System.out.println("4- Investir");
                 break;
             default:
                 System.out.println("Retornando ao menu inicial");
