@@ -50,7 +50,6 @@ public abstract class ContaNova {
 
     }
 
-
     public abstract TipoConta getTipoConta();
 
     @Override
