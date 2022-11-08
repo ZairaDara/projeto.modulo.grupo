@@ -36,15 +36,15 @@ public class Program {
 
         switch (opcao) {
             case 1:
-                System.out.println("Criacao de contas iniciado");
+                System.out.println("Criação de contas iniciado");
                 criadorConta.criadorConta();
                 break;
             case 2:
-                System.out.println("Opcao de realizar operacoes");
+                System.out.println("Opção de realizar operações");
                 menuOperacoes.SelecionaOpcao();
                 break;
             case 3:
-                System.out.println("Opcao para imprimir todas as informacoes de todas as contas");
+                System.out.println("Opção para imprimir todas as informações de todas as contas");
                 CriadorConta.gestaoClientesContas.listaTodasAsContas();
                 break;
             default:
