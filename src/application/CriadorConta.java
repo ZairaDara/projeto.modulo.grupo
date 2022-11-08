@@ -5,6 +5,7 @@ import entities.enums.TipoConta;
 import entities.enums.TipoContaJuridica;
 import entities.enums.TipoPessoa;
 
+import java.util.InputMismatchException;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -21,8 +22,21 @@ public class CriadorConta {
         System.out.println("Digite o nome do responsavel: ");
         String nome = sc.next();
 
-        System.out.println("Digite o documento do responsavel (CPF ou CNPJ): ");
-        String documento = sc.next();
+
+
+        //tratamento de erro do Documento CPF / CNPJ
+        String documento = "";
+        boolean documentoValido = false;
+        while (!documentoValido){
+            try {
+                System.out.println("Digite o documento do responsavel (CPF ou CNPJ): ");
+                validarDocumento(documento = sc.next());
+                documentoValido = true;
+            } catch (ValidaDocumento e){
+                sc.nextLine(); //necessário limpar o buffer do scanner para não dar looping infinito!
+                System.out.println("Verifique a quantidade dígitos informados.");
+            }
+        }
 
         String tipoPessoaIn2 = validarTipoPessoa(documento);
 
@@ -41,9 +55,52 @@ public class CriadorConta {
             }
         }
 
-        int tipoContaIn = sc.nextInt();
+        //Tratamento de erro do tipo de conta
+        int tipoContaIn = 9;
+        boolean tipoContaValido = false;
+        while (!tipoContaValido) {
+            try {
+                validarTipoConta(tipoContaIn = sc.nextInt(), tipoPessoaIn2);
+                tipoContaValido = true;
+            } catch (InputMismatchException e){
+                sc.nextLine(); //necessário limpar o buffer do scanner para não dar looping infinito!
+                System.out.println("Tipo de conta deve ser numérico!");
+            } catch (ValidaTipoConta e){
+                sc.nextLine(); //necessário limpar o buffer do scanner para não dar looping infinito!
+                System.out.println("Informe um tipo de conta válido:");
+            }
+
+        }
+
+
+
         String tipoContaIn2 = TipoConta(tipoContaIn, tipoPessoaIn2, j);
         InseriConta(nome, documento, tipoPessoaIn2, tipoContaIn2);
+    }
+
+    private void validarTipoConta(int tipoConta, String tipoPessoa) throws ValidaTipoConta{
+
+        if (tipoPessoa.equals(TipoPessoa.PESSOA_FISICA.toString())) {
+            if (tipoConta == 0 || tipoConta == 1 || tipoConta == 2) {
+                System.out.println("Tipo de conta válido!");
+            } else {
+                throw new ValidaTipoConta("Tipo de conta inválido!");
+            }
+        } else if (tipoPessoa.equals(TipoPessoa.PESSOA_JURIDICA.toString())){
+            if (tipoConta == 0 || tipoConta == 1) {
+                System.out.println("Tipo de conta válido!");
+            } else {
+                throw new ValidaTipoConta("Tipo de conta inválido!");
+            }
+        }
+    }
+
+    private void validarDocumento(String documento) throws ValidaDocumento{
+        if (documento.length() == 11 || documento.length() == 14){
+            System.out.println("Documento Válido!");
+        }else {
+            throw new ValidaDocumento("Documento inválido!");
+        }
     }
 
     public static String validarTipoPessoa(String documento) {
