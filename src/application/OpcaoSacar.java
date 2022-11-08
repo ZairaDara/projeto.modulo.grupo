@@ -57,7 +57,6 @@ public class OpcaoSacar {
         ContaNova contaNova = gestaoClientesContas.buscaContaCliente(documento, tipoconta);
         if (contaNova != null) {
             contaNova.sacar(valorSaque);
-            System.out.println("Saque realizado com sucesso!");
         } else {
             System.out.println(" xxxxxx Cliente não possui conta. Crie uma conta para realizar a operação xxxxxx");
         }

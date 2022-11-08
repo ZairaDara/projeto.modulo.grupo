@@ -44,6 +44,7 @@ public abstract class ContaNova {
             }
 
             this.saldo = this.saldo.subtract(valorSaque);
+            System.out.println("Saque realizado com sucesso!");
         }else{
             System.out.println("Valor do Saldo insuficiente para saque.");
         }
