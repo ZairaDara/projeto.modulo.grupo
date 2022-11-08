@@ -16,7 +16,6 @@ public class CriadorConta {
 
     public void criadorConta() {
 
-        int i = 0;
         int j = 0;
 
         System.out.println("Digite o nome do responsavel: ");
