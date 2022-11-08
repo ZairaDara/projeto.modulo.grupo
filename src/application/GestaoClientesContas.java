@@ -206,18 +206,22 @@ public class GestaoClientesContas {
 
     public void listaTodasAsContas() {
 
-        for (int i = 0; i < this.baseClientes.size(); i++) {
-            Cliente cliente = this.baseClientes.get(i);
-            System.out.println(cliente);
+        if (this.baseClientes.size() != 0) {
+            for (int i = 0; i < this.baseClientes.size(); i++) {
+                Cliente cliente = this.baseClientes.get(i);
+                System.out.println(cliente);
 
-            for (int j = 0; j < this.baseContas.size(); j++) {
-                ContaNova contaNova = this.baseContas.get(j);
-                if (cliente.getIdCliente().equals(contaNova.getIDCliente())) {
-                    System.out.println(contaNova);
-                    break;
+                for (int j = 0; j < this.baseContas.size(); j++) {
+                    ContaNova contaNova = this.baseContas.get(j);
+                    if (cliente.getIdCliente().equals(contaNova.getIDCliente())) {
+                        System.out.println(contaNova);
+                        break;
+                    }
                 }
-            }
 
+            }
+        } else {
+            System.out.println("Não existem clientes cadastrados!");
         }
 
     }

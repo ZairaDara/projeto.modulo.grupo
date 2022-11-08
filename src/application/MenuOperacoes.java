@@ -5,13 +5,14 @@ import entities.enums.TipoContaJuridica;
 import entities.enums.TipoOperacao;
 import entities.enums.TipoPessoa;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuOperacoes {
 
     Scanner scanner = new Scanner(System.in);
 
-    public void SelecionaOpcao(){
+    public void SelecionaOpcao() {
 
         System.out.println(" Selecione a operacao que deseja realizar: ");
         System.out.println("1- Sacar");
@@ -19,9 +20,25 @@ public class MenuOperacoes {
         System.out.println("3- Transferir");
         System.out.println("4- Investir");
 
-        Integer opcao = scanner.nextInt();
+        //Tratamento de erro valida opção de transação na conta.
+        Integer opcao = 0;
+        boolean opcaoTransacaoValida = false;
+        while (!opcaoTransacaoValida) {
+            try {
+                validarOpcaoTrasacao(opcao = scanner.nextInt());
+                opcaoTransacaoValida = true;
+            } catch (InputMismatchException e) {
+                scanner.nextLine();
+                System.out.println("Opção de transação precisa ser numérica!");
+            } catch (ValidaOpcaoTransacao e) {
+                scanner.nextLine();
+                System.out.println("Informe uma opção válida!");
+            }
+        }
+    }
 
-        switch (opcao){
+    private void validarOpcaoTrasacao(Integer opcaoTransacao) throws ValidaOpcaoTransacao {
+        switch (opcaoTransacao){
             case 1:
                 System.out.println("1- Sacar");
                 OpcaoSacar opcaoSacar = new OpcaoSacar();
@@ -37,11 +54,15 @@ public class MenuOperacoes {
                 OpcaoTransferir opcaoTransferir = new OpcaoTransferir();
                 opcaoTransferir.tranferir();
                 break;
-            default:
+            case 4:
                 System.out.println("Retornando ao menu inicial");
                 break;
-
+            default:
+                throw new ValidaOpcaoTransacao("Opção não disponível!");
         }
     }
+
+
+
 
 }
