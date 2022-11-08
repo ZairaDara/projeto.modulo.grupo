@@ -19,7 +19,7 @@ public class OpcaoSacar {
         String documento = scanner.next();
 
         CriadorConta criadorConta = new CriadorConta();
-        String tipoPessoaDoc = criadorConta.TipoPessoa(documento);
+        String tipoPessoaDoc = criadorConta.validarTipoPessoa(documento);
 
         System.out.println("Digite o tipo da conta desejado: ");
         if (tipoPessoaDoc.equals(TipoPessoa.PESSOA_FISICA.toString())) {

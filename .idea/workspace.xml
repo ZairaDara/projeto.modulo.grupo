@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d3c0cf20-1e2e-4257-8fa3-c43af429af70" name="Changes" comment="versao transferir">
+    <list default="true" id="d3c0cf20-1e2e-4257-8fa3-c43af429af70" name="Changes" comment="Criada herança da classe ContaNova, com novas classes filhas CC, CP, CI.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/CriadorConta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/CriadorConta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/OpcaoDepositar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/OpcaoDepositar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/OpcaoSacar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/OpcaoSacar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/OpcaoTransferir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/OpcaoTransferir.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/RealizaTranferencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/RealizaTranferencia.java" afterDir="false" />
     </list>
@@ -235,7 +238,8 @@
     <MESSAGE value="Concluido CriadorConta" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/application/CriadorConta.java&#10;#&#9;src/application/GestaoClientesContas.java&#10;#&#9;src/application/Program.java" />
     <MESSAGE value="versao transferir" />
-    <option name="LAST_COMMIT_MESSAGE" value="versao transferir" />
+    <MESSAGE value="Criada herança da classe ContaNova, com novas classes filhas CC, CP, CI." />
+    <option name="LAST_COMMIT_MESSAGE" value="Criada herança da classe ContaNova, com novas classes filhas CC, CP, CI." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

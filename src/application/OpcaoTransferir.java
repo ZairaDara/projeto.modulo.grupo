@@ -1,8 +1,6 @@
 package application;
 
-import entities.Cliente;
 import entities.ContaNova;
-import entities.ContasCliente;
 import entities.enums.TipoConta;
 import entities.enums.TipoContaJuridica;
 import entities.enums.TipoPessoa;
@@ -23,7 +21,7 @@ public class OpcaoTransferir {
 
 
         CriadorConta criadorConta = new CriadorConta();
-        String tipoPessoaDoc = criadorConta.TipoPessoa(documento);
+        String tipoPessoaDoc = criadorConta.validarTipoPessoa(documento);
 
 
         System.out.println("Digite o tipo da conta desejado: ");

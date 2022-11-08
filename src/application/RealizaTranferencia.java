@@ -25,7 +25,7 @@ public class RealizaTranferencia {
         System.out.println("Digite o tipo da conta desejado: ");
 
         CriadorConta criadorConta = new CriadorConta();
-        String tipoPessoaDoc = criadorConta.TipoPessoa(docfavorecido);
+        String tipoPessoaDoc = criadorConta.validarTipoPessoa(docfavorecido);
 
         if (tipoPessoaDoc.equals(TipoPessoa.PESSOA_FISICA.toString())) {
             System.out.println(j + " - " + TipoConta.CONTA_CORRENTE);

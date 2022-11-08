@@ -1,7 +1,6 @@
 package application;
 
 import entities.Cliente;
-import entities.ContaNova;
 import entities.enums.TipoConta;
 import entities.enums.TipoContaJuridica;
 import entities.enums.TipoPessoa;
@@ -26,7 +25,7 @@ public class CriadorConta {
         System.out.println("Digite o documento do responsavel (CPF ou CNPJ): ");
         String documento = sc.next();
 
-        String tipoPessoaIn2 = TipoPessoa(documento);
+        String tipoPessoaIn2 = validarTipoPessoa(documento);
 
         System.out.println("Digite o tipo da conta desejado: ");
         if (tipoPessoaIn2.equals(TipoPessoa.PESSOA_FISICA.toString())) {
@@ -48,9 +47,9 @@ public class CriadorConta {
         InseriConta(nome, documento, tipoPessoaIn2, tipoContaIn2);
     }
 
-    public static String TipoPessoa(String documento) {
+    public static String validarTipoPessoa(String documento) {
 
-        String tipoPessoaIn1 = null;
+        String tipoPessoaIn1 = "";
         switch (documento.length()) {
             case 11:
                 tipoPessoaIn1 = String.valueOf(TipoPessoa.PESSOA_FISICA);
@@ -59,7 +58,7 @@ public class CriadorConta {
                 tipoPessoaIn1 = String.valueOf(TipoPessoa.PESSOA_JURIDICA);
                 break;
             default:
-                System.out.println("Valor de documento Inválido");
+                System.out.println("Documento Inválido!");
                 break;
         }
         return tipoPessoaIn1;
