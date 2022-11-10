@@ -40,6 +40,9 @@ public class CriadorConta {
 
         String tipoPessoaIn2 = validarTipoPessoa(documento);
 
+
+
+
         System.out.println("Digite o tipo da conta desejado: ");
         if (tipoPessoaIn2.equals(TipoPessoa.PESSOA_FISICA.toString())) {
             for (
